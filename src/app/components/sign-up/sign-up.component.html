@@ -1,0 +1,63 @@
+<div class="sing-up-wrapper">
+  <mat-card class="sign-up-box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <form
+      [formGroup]="signupFormGroup"
+      class="sign-up-form"
+      (ngSubmit)="signupFormGroup.valid && onSubmit()">
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput
+                 formControlName="username"
+                 placeholder="Username"
+                 autocomplete="off"
+                 required
+                 minlength="3"
+                 maxlength="25"
+                 matTooltip="Enter Username with minimum of 3 characters"
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 formControlName="email"
+                 placeholder="Email"
+                 autocomplete="off"
+                 required
+                 minlength="3"
+                 maxlength="25"
+                 matTooltip="Enter Email in this format email@email.email"
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 formControlName="password"
+                 placeholder="Password"
+                 autocomplete="off"
+                 type="password"
+                 required
+                 minlength="6"
+                 maxlength="25"
+                 matTooltip="Input password with minimum length of 6 characters.
+                 Password should include 1 capital letter and 1 number"
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 formControlName="repeatedPassword"
+                 placeholder="Repeat password"
+                 autocomplete="off"
+                 type="password"
+                 required
+                 minlength="6"
+                 maxlength="25"
+                 matTooltip="Repeat password again"
+          >
+        </mat-form-field>
+        <mat-error>{{errorMessage}}</mat-error>
+      </mat-card-content>
+      <button mat-raised-button color="primary" class="sign-up-button">Register</button>
+    </form>
+  </mat-card>
+</div>
