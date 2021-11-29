@@ -1,0 +1,16 @@
+<p>search works!</p>
+
+<mat-card>
+
+  <form class="search-form" [formGroup]="searchFormGroup" (ngSubmit)="submitSearch()">
+    <mat-card-content>
+      <mat-form-field class="search-form-full" appearance="fill">
+        <mat-label>Search Movies...</mat-label>
+        <input matInput placeholder="Micheal Bay" type="text" formControlName="search">
+      </mat-form-field>
+      <button mat-button (submit)="submitSearch()">Search</button>
+    </mat-card-content>
+
+
+  </form>
+</mat-card>
