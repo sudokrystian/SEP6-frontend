@@ -1,0 +1,30 @@
+.sign-up-box {
+  width: 350px;
+  height: 350px;
+  margin: auto;
+}
+
+.sing-up-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up-form-field {
+  width: 100%;
+  margin: auto;
+}
+
+.sign-up-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sign-up-submit-button {
+  margin-right: 16px;
+}
+
+.sign-up-cancel-button {
+  margin-left: 16px;
+}
