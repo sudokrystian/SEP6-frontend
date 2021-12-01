@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RegisterService} from "../../services/register/register.service";
-import {sha224} from "js-sha256";
+import {sha224, sha256} from "js-sha256";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 
@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit {
       this.errorMessage = 'Passwords do not match try again'
     }
 
-    this.register.register(username, email, sha224(password)).subscribe(
+    this.register.register(username, email, sha256(password)).subscribe(
       data => {
         console.log(data);
       },

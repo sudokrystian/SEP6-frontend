@@ -32,7 +32,7 @@ import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
       headerName: 'HTTP_X_XSRF_TOKEN',
     }),
   ],
-  providers: [ ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
