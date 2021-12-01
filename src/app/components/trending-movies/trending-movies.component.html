@@ -1,0 +1,7 @@
+<div *ngIf="trendingMovies" class="trading-movies-container">
+    <div *ngFor="let movie of trendingMovies.results" class="trending-movie">
+        <h5>{{movie.original_title}}</h5>
+        <img *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{movie.poster_path}}" alt="poster" class="movie-poster">
+        <p class="trending-movie-description">{{movie.overview}}</p>
+    </div>
+</div>
