@@ -1,0 +1,11 @@
+<p>search-movie works!</p>
+
+<table mat-table class="table">
+  <title>Test for movies search</title>
+  <tr *ngFor="let data of _movieDataStorage">
+      <td>{{data._poster_path}}</td>
+      <td>{{data._title}}</td>
+      <td>{{data._overview}}</td>
+      <td>{{data._release_date}}</td>
+  </tr>
+</table>

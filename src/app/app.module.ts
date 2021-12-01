@@ -6,21 +6,24 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from "./angular-material.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {SearchComponent} from './components/global-components/search/search.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { SearchMovieComponent } from './components/global-components/search/search-movie/search-movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    SearchMovieComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     AngularMaterialModule,
     HttpClientModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
