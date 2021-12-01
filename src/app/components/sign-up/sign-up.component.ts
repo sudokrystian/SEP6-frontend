@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RegisterService} from "../../services/register/register.service";
-import {sha224, sha256} from "js-sha256";
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {sha256} from "js-sha256";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 
 @Component({
@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
 
   errorMessage = '';
 
-  constructor(private register: RegisterService,
+  constructor(private api: AuthenticationService,
               private fb: FormBuilder) {
   }
 
@@ -52,14 +52,9 @@ export class SignUpComponent implements OnInit {
       this.errorMessage = 'Passwords do not match try again'
     }
 
-    this.register.register(username, email, sha256(password)).subscribe(
-      data => {
-        console.log(data);
-      },
-      err => {
-        this.errorMessage = err.error.message;
-      }
-    );
+    this.api.register(username, email, sha256(password)).subscribe({
+      error: (err) => this.errorMessage = err.value,
+    });
   }
 
   private getUserName(): string {
