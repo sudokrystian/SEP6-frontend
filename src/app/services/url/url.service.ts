@@ -12,11 +12,11 @@ export class UrlService {
   }
 
   getLocalURL(): string {
-    return this.SERVER;
+    return this.LOCAL;
   }
 
   getServerURL(): string {
-    return this.LOCAL;
+    return this.SERVER;
   }
 
 }
