@@ -1,0 +1,64 @@
+<div class="sing-up-wrapper">
+  <mat-card class="sign-up-box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <form
+      [formGroup]="signupFormGroup"
+      class="sign-up-form"
+      (ngSubmit)="signupFormGroup.valid && onSubmit()">
+      <mat-card-content>
+        <mat-form-field class="sign-up-form-field">
+          <input matInput
+                 formControlName="username"
+                 placeholder="Username"
+                 autocomplete="off"
+                 minlength="3"
+                 maxlength="25"
+                 matTooltip="Input Username with minimum of 3 characters"
+                 matTooltipPosition="right">
+        </mat-form-field>
+        <mat-form-field class="sign-up-form-field">
+          <input matInput
+                 type="email"
+                 formControlName="email"
+                 placeholder="Email"
+                 autocomplete="off"
+                 minlength="3"
+                 maxlength="25"
+                 matTooltip="Input Email in this format email@email.email"
+                 matTooltipPosition="right">
+        </mat-form-field>
+        <mat-form-field class="sign-up-form-field">
+          <input matInput
+                 formControlName="password"
+                 placeholder="Password"
+                 autocomplete="off"
+                 type="password"
+                 minlength="6"
+                 maxlength="25"
+                 matTooltip="Input password with minimum length of 8 characters.
+                 Password should include at least 1 capital letter and 1 number"
+                 matTooltipPosition="right">
+        </mat-form-field>
+        <mat-form-field class="sign-up-form-field">
+          <input matInput
+                 formControlName="repeatedPassword"
+                 placeholder="Repeat password"
+                 autocomplete="off"
+                 type="password"
+                 minlength="6"
+                 maxlength="25"
+                 matTooltip="Confirm password by repeating it again"
+                 matTooltipPosition="right">
+        </mat-form-field>
+        <mat-error>{{errorMessage}}</mat-error>
+      </mat-card-content>
+      <div class="sign-up-button-wrapper">
+        <button type="submit" [disabled]="!signupFormGroup.valid" mat-raised-button color="primary" class="sign-up-submit-button">Register
+        </button>
+        <button type="reset" mat-raised-button color="warn" class="sign-up-cancel-button" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
