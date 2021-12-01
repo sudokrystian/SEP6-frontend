@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   // Is initialized by FormBuilder in ngOnInit()
   // @ts-ignore
   loginFormGroup: FormGroup;
+  errorMessage: string = '';
 
   constructor(private fb: FormBuilder, private api: LoginService) { }
 
@@ -31,11 +32,14 @@ export class LoginComponent implements OnInit {
     const password = sha256(this.loginFormGroup.get('password')?.value);
     this.api.login(username,password).subscribe(
       data => console.log(data),
-      err=> console.log(err)
+      err=> {
+        this.errorMessage = err.error.toString();
+      }
     );
   }
 
   cancel() {
     this.loginFormGroup.reset()
+    this.errorMessage = '';
   }
 }
