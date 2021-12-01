@@ -32,8 +32,11 @@ export class LoginComponent implements OnInit {
     const username = this.loginFormGroup.get('username')?.value;
     const password = sha256(this.loginFormGroup.get('password')?.value);
     this.api.login(username, password).subscribe({
-      error: (err) => this.errorMessage = err.value
-    });
+        next: x => console.log('Observer got a next value: ' + x),
+        error: err => {
+          this.errorMessage = err.error
+        },
+      });
   }
 
   cancel() {
