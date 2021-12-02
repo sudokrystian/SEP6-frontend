@@ -2,17 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, map} from "rxjs";
 import {SearchByMovieData} from "../../../model/search/movies/searchByMovie-data";
-
-interface SearchByTitleDataObject {
-  page: number
-  results: [{
-    poster_path: string
-    overview: string
-    release_date: string
-    id: number
-    title: string
-  }]
-}
+import {UrlService} from "../../url/url.service";
+import {TrendingMovies} from "../../../models/trending-movies";
 
 const SendSearchURL = 'http://localhost:8080/search/'
 const RetrieveMovieSearchFromServerURL = 'http://127.0.0.1:8000/search/movie/page/1/name/fast'
@@ -27,7 +18,8 @@ const RetrieveMovieSearchFromServerURL = 'http://127.0.0.1:8000/search/movie/pag
 export class SearchService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private url: UrlService
   ) {
   }
 
@@ -46,7 +38,8 @@ export class SearchService {
   //   })
   // }
 
-  private apiObjectToSearchByTitle(object: SearchByTitleDataObject) {
+  /*
+  private apiObjectToSearchByTitle(object: TrendingMovies) {
     return (
       object.page,
         object.results.map(data =>
@@ -56,16 +49,14 @@ export class SearchService {
             data.release_date,
             data.id,
             data.title
-          ))
+          )),
+        object.total_pages,
+        object.total_results
     )
   }
+  */
 
-  private getSearchResultByInput(): Observable<any> {
-    return this.http.get(RetrieveMovieSearchFromServerURL)
-  }
-
-  getAllSearchResultByInput(): Observable<SearchByMovieData[]> {
-    return this.getSearchResultByInput()
-      .pipe(map(result => this.apiObjectToSearchByTitle(result)))
+  getSearchResultByInput(): Observable<TrendingMovies> {
+    return this.http.get<TrendingMovies>(RetrieveMovieSearchFromServerURL)
   }
 }

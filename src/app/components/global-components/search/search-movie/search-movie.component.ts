@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../../../../services/movies/search/search.service";
-import {SearchByMovieData} from "../../../../model/search/movies/searchByMovie-data";
-import {SearchMovieStore} from "../../../../store/search/search-movie-store";
+import {TrendingMovies} from "../../../../models/trending-movies";
 
 @Component({
   selector: 'app-search-movie',
@@ -10,30 +9,22 @@ import {SearchMovieStore} from "../../../../store/search/search-movie-store";
 })
 export class SearchMovieComponent implements OnInit {
 
-  _movieDataStorage: SearchByMovieData[] = []
+  // @ts-ignore
+  _newMovieData: TrendingMovies
 
   constructor(
     private api: SearchService,
-    private store: SearchMovieStore
   ) { }
 
   ngOnInit(): void {
-    this.getMovieData()
-    //this.setMovieDataFromStore()
-    //this.getTestData()
+    this.getMoviesDataFromAPI()
   }
 
-  getMovieData() {
-    this.store.getMoviesDataFromAPI().subscribe(data =>
-      this._movieDataStorage = data)
-  }
-
-  private storeReceivedMovieData(data: SearchByMovieData[]) {
-    this.store.setNewMovieData(data)
-  }
-
-  setMovieDataFromStore() {
-    this._movieDataStorage = this.store.getNewMovieData()
-    //console.log(this._movieDataStorage)
+  getMoviesDataFromAPI() {
+    this.api.getSearchResultByInput().subscribe({
+      next: value => this._newMovieData = value,
+      error: err => console.log(err),
+      complete: () => console.log('Have been completed')
+    })
   }
 }
