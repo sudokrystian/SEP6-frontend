@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./components/login/login.component";
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
+import {TrendingMoviesComponent} from "./components/trending-movies/trending-movies.component";
 
 const routes: Routes = [
-  {path:'register', pathMatch: 'full', component: SignUpComponent},
-   {path:'', pathMatch: 'full', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: SignUpComponent},
+  {path: '', pathMatch: 'full', component: LoginComponent},
+  {path: 'trending', component: TrendingMoviesComponent}
 ];
 
 @NgModule({
@@ -13,4 +16,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
