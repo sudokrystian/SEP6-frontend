@@ -1,7 +1,56 @@
-<div *ngIf="trendingMovies" class="trading-movies-container">
+<!-- <div class="keen-slider" #sliderRef>
+  <div class="keen-slider__slide number-slide1">1</div>
+  <div class="keen-slider__slide number-slide2">2</div>
+  <div class="keen-slider__slide number-slide3">3</div>
+  <div class="keen-slider__slide number-slide4">4</div>
+  <div class="keen-slider__slide number-slide5">5</div>
+  <div class="keen-slider__slide number-slide6">6</div>
+</div> -->
+
+<!-- <div *ngIf="trendingMovies" class="trading-movies-container">
     <div *ngFor="let movie of trendingMovies.results" class="trending-movie">
         <h5>{{movie.original_title}}</h5>
         <img *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{movie.poster_path}}" alt="poster" class="movie-poster">
         <p class="trending-movie-description">{{movie.overview}}</p>
     </div>
+</div> -->
+
+<!-- <div class="keen-slider" #sliderRef *ngIf="trendingMovies">
+    <div *ngFor="let movie of trendingMovies.results" class="keen-slider__slide">
+        <h5>{{movie.original_title}}</h5>
+        <img *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{movie.poster_path}}" alt="poster" class="movie-poster">
+        <p class="trending-movie-description">{{movie.overview}}</p>
+    </div>
+</div> -->
+
+<div *ngIf="trendingMovies">
+  <div class="keen-slider" #sliderRef>
+    <div
+      *ngFor="let movie of trendingMovies.results"
+      class="keen-slider__slide"
+    >
+      <h5>{{ movie.original_title }}</h5>
+      <img
+        *ngIf="posterSize"
+        src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
+          movie.poster_path
+        }}"
+        alt="poster"
+        class="movie-poster"
+      />
+      <p class="trending-movie-description">{{ movie.overview }}</p>
+    </div>
+  </div>
+
+  <!-- WORKS -->
+  <!-- <div *ngIf="trendingMovies">
+  <div class="keen-slider" #sliderRef>
+    <div class="keen-slider__slide">1</div>
+    <div class="keen-slider__slide">2</div>
+    <div class="keen-slider__slide">3</div>
+    <div class="keen-slider__slide">4</div>
+    <div class="keen-slider__slide">5</div>
+    <div class="keen-slider__slide">6</div>
+  </div>
+</div> -->
 </div>
