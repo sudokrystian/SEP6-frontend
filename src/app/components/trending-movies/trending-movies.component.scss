@@ -1,3 +1,4 @@
+$keen-slider-height: 800px;
 // .trading-movies-container {
 //     display: flex;
 //     flex-direction: column;
@@ -17,7 +18,43 @@
 //     text-align: center;
 // }
 
+.carousel {
+    display: flex;
+    flex-direction: row;
+}
+
 .keen-slider {
     display: flex;
     flex-direction: row;
+    max-height: $keen-slider-height;
+    background-color: #eeeeee
+}
+
+.buttons-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-carousel {
+    background-color: rgba(8, 8, 8, 0.315);
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 40%;
+}
+
+.trending-movie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #ffffff;
+    &:hover {
+        background-color: rgba(14, 13, 13, 0.315);
+    }
+}
+
+.trending-movie-description {
+    text-align: center;
+    padding-top: 10px;
 }

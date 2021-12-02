@@ -47,6 +47,10 @@ export class TrendingMoviesComponent implements OnInit {
     if (this.slider) this.slider.destroy()
   }
 
+  nextSlide(): void {
+    this.slider.next();
+  }
+
   loadMovies(): void {
     this.api.getTrendingMovies().subscribe({
       next: (data) => {
