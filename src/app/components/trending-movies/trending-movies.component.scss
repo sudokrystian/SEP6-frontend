@@ -1,5 +1,7 @@
 $keen-slider-height: 600px;
 $carousel-width: 90%;
+$carousel-color: #eeeeee;
+$carousel-item-hover-color: rgb(109, 109, 109);
 
 .carousel {
   display: flex;
@@ -11,7 +13,7 @@ $carousel-width: 90%;
     flex-direction: row;
     width: $carousel-width;
     max-height: $keen-slider-height;
-    background-color: #eeeeee;
+    background-color: $carousel-color;
   
     .trending-movie {
       display: flex;
@@ -20,9 +22,9 @@ $carousel-width: 90%;
       border-right: 1px solid #ffffff;
       overflow: hidden;
       &:hover {
-        background-color: rgb(109, 109, 109);
+        background-color: $carousel-item-hover-color;
         overflow: visible;
-        height: 100%;
+        height: fit-content;
       }
     }
   
