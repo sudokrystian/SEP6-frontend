@@ -1,4 +1,5 @@
-<div *ngIf="trendingMovies">
+<div *ngIf="trendingMovies" class="carousel">
+  <div class="button-carousel" (click)="slider.next()"></div>
   <div class="keen-slider" #sliderRef>
     <div
       *ngFor="let movie of trendingMovies.results"
@@ -13,11 +14,10 @@
         alt="poster"
         class="movie-poster"
       />
+      <p>Release date: {{ movie.release_date }}</p>
+      <hr class="poster-break-line" />
       <p class="trending-movie-description">{{ movie.overview }}</p>
     </div>
   </div>
-  <div class="buttons-carousel">
-      <div class="button-carousel" (click)="slider.next()"></div>
-      <div class="button-carousel" (click)="slider.prev()"></div>
-  </div>
+  <div class="button-carousel" (click)="slider.prev()"></div>
 </div>
