@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrendingMovies } from 'src/app/models/trending-movies';
+import { TrendingMovies } from 'src/app/models/trending-movies.model';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 
 @Component({
@@ -16,17 +16,20 @@ export class TrendingMoviesComponent implements OnInit {
   constructor(private api: MoviesService) { }
 
   ngOnInit(): void {
+    this.loadMovies()
+  }
+
+  loadMovies(): void {
     this.api.getTrendingMovies().subscribe({
       next: (data) => {
         this.trendingMovies = data;
-        console.log(data)
       },
       error: (e) => console.error("Error: " + e),
       complete: () => {
-        // Request finished
-        console.info('complete')
+        // Request finished here you cna optionally add updates, etc.
       }
     })
   }
+
 
 }
