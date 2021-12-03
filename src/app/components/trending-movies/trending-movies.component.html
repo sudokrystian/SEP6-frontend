@@ -1,23 +1,25 @@
 <div *ngIf="trendingMovies" class="carousel">
-  <div class="button-carousel" (click)="slider.next()"></div>
-  <div class="keen-slider" #sliderRef>
+  <button mat-button class="button-carousel" (click)="slider.next()">
+    <h1 class="shift-icon">&#10094;</h1>
+  </button>
+  <div class="keen-slider trending-movie-carousel" #sliderRef>
     <div
       *ngFor="let movie of trendingMovies.results"
-      class="keen-slider__slide trending-movie"
+      class="keen-slider__slide trending-movie-cell"
     >
-      <h2>{{ movie.original_title }}</h2>
-      <img
-        *ngIf="posterSize"
-        src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
-          movie.poster_path
-        }}"
-        alt="poster"
-        class="movie-poster"
-      />
-      <p>Release date: {{ movie.release_date }}</p>
-      <hr class="poster-break-line" />
-      <p class="trending-movie-description">{{ movie.overview }}</p>
+      <div class="trending-movie-img-wrapper">
+        <img *ngIf="posterSize"
+             class="trending-movie-poster"
+             src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{movie.poster_path}}" alt="poster"/>
+      </div>
+      <div class="trending-movie-info-wrapper">
+        <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
+        <p>{{ movie.release_date }}</p>
+        <p class="trending-movie-description">{{ movie.overview }}</p>
+      </div>
     </div>
   </div>
-  <div class="button-carousel" (click)="slider.prev()"></div>
+  <button mat-button class="button-carousel" (click)="slider.prev()">
+    <h1 class="shift-icon">&#10095;</h1>
+  </button>
 </div>

@@ -16,7 +16,7 @@ export class TrendingMoviesComponent implements OnInit {
 
   trendingMovies: TrendingMovies | undefined;
   // Poster size in pixels
-  posterSize: number = 300;
+  posterSize: number = 200;
 
   numbers = [1, 2, 3, 4, 5]
 
@@ -27,15 +27,13 @@ export class TrendingMoviesComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log("Sldier init!")
     this.sliderRef?.changes.subscribe((components: QueryList<ElementRef<HTMLElement>>) => {
-      console.log("Activating slider!")
       this.slider = new KeenSlider<{}>(components.first.nativeElement, {
         loop: true,
         rtl: true,
         slides: {
-          perView: 3,
-          spacing: 10,
+          perView: 5,
+          spacing: 5,
         },
       })
     }
