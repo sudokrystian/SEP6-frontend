@@ -1,6 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
-import {SearchService} from "../../../services/movies/search/search.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {SearchMovieComponent} from "./search-movie/search-movie.component";
+
+interface Option {
+  value: string
+  viewValue: string
+}
 
 @Component({
   selector: 'app-search',
@@ -12,33 +17,44 @@ export class SearchComponent implements OnInit {
   // Is initialized by FormBuilder in ngOnInit()
   // @ts-ignore
   searchFormGroup: FormGroup;
+  selectedOption = 'movie';
+
+  options: Option[] = [
+    {value: 'movie', viewValue: 'Movie'},
+    {value: 'people', viewValue: 'People'}
+  ]
 
   constructor(
     private formBuilder: FormBuilder,
-    private api: SearchService
+    // private api: SearchService
   ) { }
 
   ngOnInit(): void {
     this.initializeSearchForm()
   }
 
+  @ViewChild(SearchMovieComponent) child: SearchMovieComponent | undefined
+
   private initializeSearchForm() {
     this.searchFormGroup = this.formBuilder.group({
-      search: ''
+      search: '',
+      option: [this.selectedOption, [Validators.required]]
     })
   }
 
   sendSearchToApi() {
     let searchValue = this.searchFormGroup.get('search')?.value;
+    let optionsValue = this.searchFormGroup.get('option')?.value
 
-    this.api.search(searchValue)
+    console.log(optionsValue)
+    if (optionsValue === 'movie' && searchValue !== '') {
+      this.child?.getMoviesDataFromAPI(searchValue)
+    }
   }
 
   submitSearch() {
     this.sendSearchToApi()
     console.log('Search Submitted')
-    //this.movieSearch.setMovieDataFromStore()
-    //console.log('The movies are set in the store, ready to be displayed.')
   }
 
 }

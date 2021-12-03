@@ -1,0 +1,35 @@
+.outer-div {
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 100%;
+  color: dimgray;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 10px;
+
+}
+
+.movie-list {
+  /*float: left;*/
+  /*margin: 1%;*/
+}
+
+.poster-size {
+  width: 300px;
+  height: 500px;
+}
+
+.information-div {
+  /*width: 300px;*/
+  /*height: 130px;*/
+}
+.information-div-test {
+  white-space: break-spaces;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
