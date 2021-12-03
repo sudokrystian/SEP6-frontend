@@ -1,18 +1,81 @@
-.trading-movies-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+$keen-slider-height: 300px;
+$carousel-width: 90%;
+$primary-color: #303030;
+$carousel-item-hover-color: rgb(109, 109, 109);
+$text-color: white;
+.shift-icon {
+  color: $text-color;
 }
 
-.trending-movie {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid 1px black;
-    width: 50%;
+.carousel {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-height: 300px;
+  background-color: $primary-color;
 }
 
-.trending-movie-description {
-    text-align: center;
+.trending-movie-carousel {
+  display: flex;
+  flex-direction: row;
+  width: $carousel-width;
+  height: $keen-slider-height;
 }
+
+.trending-movie-cell {
+  position: relative;
+  align-items: center;
+  width: 300px;
+}
+
+.trending-movie-img-wrapper{
+  width: 100%;
+  align-items: center;
+.trending-movie-poster {
+   opacity: 1;
+   transition: .5s ease;
+   backface-visibility: hidden;
+ }}
+
+.trending-movie-info-wrapper {
+  width: 300px;
+  overflow: hidden;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  color: white;
+  top: 50%;
+
+  .trending-movie-title {
+
+  }
+
+  .trending-movie-description{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.trending-movie-cell:hover .trending-movie-poster {
+  opacity: 0.1;
+}
+
+.trending-movie-cell:hover .trending-movie-info-wrapper {
+  opacity: 1;
+}
+
+.button-carousel {
+  z-index: 2;
+  opacity: 0.7;
+  background-color: $primary-color;
+  width: calc(100% - $carousel-width);
+  height: $keen-slider-height;
+
+  &:hover {
+    background-color: rgba(8, 8, 8, 0.753);
+  }
+}
+
+

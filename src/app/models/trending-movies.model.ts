@@ -1,8 +1,8 @@
-import { Movie } from "./movie";
+import { TrendingMovie } from "./trending-movie.model";
 
 export interface TrendingMovies {
     page: number,
-    results: Movie[],
+    results: TrendingMovie[],
     total_pages: number,
     total_results: number
 }
