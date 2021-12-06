@@ -1,0 +1,28 @@
+<div *ngIf="_newPeopleData">
+  <div class="people-search-list">
+    <div *ngFor="let data of _newPeopleData.results">
+      <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.profile_path}}"
+           alt="poster"
+           class="people-poster"/>
+      <div class="people-information-div">
+        <mat-card-content>{{data.name}}</mat-card-content>
+        <mat-card-content>Profession: {{data.known_for_department}}</mat-card-content>
+      </div>
+    </div>
+  </div>
+
+  <div class="people-pagination-div">
+
+    <button mat-button (click)="previousPage()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <p>Page {{_newPeopleData.page}} of {{_newPeopleData.total_pages}}</p>
+
+    <button mat-button (click)="nextPage()">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+  </div>
+
+</div>

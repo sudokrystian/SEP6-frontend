@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SearchMovieComponent} from "./search-movie/search-movie.component";
+import {SearchPeopleComponent} from "./search-people/search-people.component";
 
 interface Option {
   value: string
@@ -26,14 +27,14 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    // private api: SearchService
   ) { }
 
   ngOnInit(): void {
     this.initializeSearchForm()
   }
 
-  @ViewChild(SearchMovieComponent) child: SearchMovieComponent | undefined
+  @ViewChild(SearchMovieComponent) childSearchMovie: SearchMovieComponent | undefined
+  @ViewChild(SearchPeopleComponent) childSearchPeople: SearchPeopleComponent | undefined
 
   private initializeSearchForm() {
     this.searchFormGroup = this.formBuilder.group({
@@ -48,7 +49,9 @@ export class SearchComponent implements OnInit {
 
     console.log(optionsValue)
     if (optionsValue === 'movie' && searchValue !== '') {
-      this.child?.getMoviesDataFromAPI(searchValue)
+      this.childSearchMovie?.getMoviesDataFromAPI(searchValue)
+    } if (optionsValue === 'people' && searchValue !== '') {
+      this.childSearchPeople?.getPeopleDataFromAPI(searchValue)
     }
   }
 

@@ -13,6 +13,7 @@ import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
 import {TrendingMoviesComponent} from './components/trending-movies/trending-movies.component';
+import { SearchPeopleComponent } from './components/global-components/search/search-people/search-people.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {TrendingMoviesComponent} from './components/trending-movies/trending-mov
     SearchMovieComponent,
     LoginComponent,
     SignUpComponent,
-    TrendingMoviesComponent
+    TrendingMoviesComponent,
+    SearchPeopleComponent
   ],
   imports: [
     BrowserModule,
