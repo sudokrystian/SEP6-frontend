@@ -14,6 +14,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
 import {TrendingMoviesComponent} from './components/trending-movies/trending-movies.component';
 import { SearchPeopleComponent } from './components/global-components/search/search-people/search-people.component';
+import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
+import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
+
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { SearchPeopleComponent } from './components/global-components/search/sea
     LoginComponent,
     SignUpComponent,
     TrendingMoviesComponent,
-    SearchPeopleComponent
+    SearchPeopleComponent,
+    MovieStatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,9 @@ import { SearchPeopleComponent } from './components/global-components/search/sea
     HttpClientXsrfModule.withOptions({
       cookieName: 'hfian-vjarm-mg3216a4b6da13ryra451b3czf1d6a8f4d68g4a8-f1a6f1ety3a4f3d54gs6y1a3d2c1s6a5',
       headerName: 'HTTP_X_XSRF_TOKEN',
+    }),
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
     }),
   ],
   providers: [],

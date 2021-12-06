@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import { TrendingMovies } from 'src/app/models/trending-movies';
+import {TrendingMovies} from 'src/app/models/trending-movies.model';
 
 const URL = 'https://django-webservice.azurewebsites.net/'
 
@@ -16,4 +16,5 @@ export class MoviesService {
   getTrendingMovies(): Observable<TrendingMovies> {
     return this.http.get<TrendingMovies>(URL + '/movies/trending')
   }
+
 }

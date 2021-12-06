@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UrlService} from "../url/url.service";
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer'})
 };
 
 @Injectable({

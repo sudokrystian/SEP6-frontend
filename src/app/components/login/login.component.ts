@@ -6,7 +6,7 @@ import {AuthenticationService} from "../../services/authentication/authenticatio
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   // Is initialized by FormBuilder in ngOnInit()
