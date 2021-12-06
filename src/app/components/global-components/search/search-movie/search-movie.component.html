@@ -1,0 +1,30 @@
+<div *ngIf="_newMovieData" class="search-movie-wrapper">
+  <div class="outer-div">
+    <div *ngFor="let data of _newMovieData.results" class="movie-list">
+      <div class="poster-size">
+        <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.poster_path}}"
+             alt="poster"
+             class="movie-poster"/>
+      </div>
+      <div class="information-div">
+        <mat-card-content>{{data.title}}</mat-card-content>
+        <mat-card-content>({{data.release_date}})</mat-card-content>
+        <mat-card-content class="information-div-test">{{data.overview}}</mat-card-content>
+      </div>
+    </div>
+  </div>
+
+  <div class="movie-pagination-div">
+
+    <button mat-button (click)="previousPage()" class="search-previous-button">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <p>Page {{_newMovieData.page}} of {{_newMovieData.total_pages}}</p>
+
+    <button mat-button (click)="nextPage()" class="search-next-button">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+
+  </div>
+</div>

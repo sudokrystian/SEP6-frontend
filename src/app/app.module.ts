@@ -6,10 +6,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AngularMaterialModule} from "./angular-material.module";
 import {AppRoutingModule} from "./app-routing.module";
+import {SearchComponent} from './components/global-components/search/search.component';
+import {SearchMovieComponent} from './components/global-components/search/search-movie/search-movie.component';
 import {LoginComponent} from './components/login/login.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
+import { SearchPeopleComponent } from './components/global-components/search/search-people/search-people.component';
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
 import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
 
@@ -18,18 +21,19 @@ import { NgxEchartsModule } from 'ngx-echarts';
 @NgModule({
   declarations: [
     AppComponent,
+    SearchComponent,
+    SearchMovieComponent,
     LoginComponent,
     SignUpComponent,
     TrendingMoviesComponent,
+    SearchPeopleComponent,
     MovieStatisticsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     AppRoutingModule,
+    AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

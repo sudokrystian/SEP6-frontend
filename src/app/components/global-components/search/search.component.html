@@ -1,0 +1,29 @@
+<mat-card class="mat-card-outer">
+  <form class="search-form" [formGroup]="searchFormGroup" (ngSubmit)="submitSearch()">
+    <mat-card-content>
+
+      <mat-form-field class="search-form-options" appearance="fill">
+        <mat-select formControlName="option">
+          <mat-option *ngFor="let option of options" [value]="option.value">
+            {{option.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="searchFormGroup.get('option')?.hasError('required')">
+          Please Select Option.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="search-form-full" appearance="fill">
+        <mat-label>Search Movies...</mat-label>
+        <input matInput placeholder="Micheal Bay" type="text" formControlName="search">
+      </mat-form-field>
+      <button mat-button (submit)="submitSearch()" class="search-submit-button">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-card-content>
+
+  </form>
+</mat-card>
+
+<app-search-movie></app-search-movie>
+<app-search-people></app-search-people>
