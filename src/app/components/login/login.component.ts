@@ -43,17 +43,4 @@ export class LoginComponent implements OnInit {
     this.loginFormGroup.reset()
     this.errorMessage = '';
   }
-/* TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM4NTQ0MzY5LCJqdGkiOiIxOTdmOTNjMWYyM2E0OTdjODdlYmMwMDBhNWRlYjE0YiIsInVzZXJfaWQiOjExfQ.IPSPxMBrF2k0z_f9YNt3c5vITwwDo_1G14c4MjMNFUQ */
-  testEndpoint() {
-    this.api.secured().subscribe({
-      next: x=>{
-        console.log('TEST: next')
-        console.log(x)
-      },
-      error: err => {
-        console.log('TEST: error')
-        console.log(err)
-      }
-    })
-  }
 }

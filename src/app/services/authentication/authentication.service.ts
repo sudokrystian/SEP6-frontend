@@ -29,8 +29,4 @@ export class AuthenticationService {
       password
     }, httpOptions)
   }
-
-  secured(): Observable<any> {
-    return this.http.get(this.url.getServerURL() + 'rating/user', httpOptions)
-  }
 }
