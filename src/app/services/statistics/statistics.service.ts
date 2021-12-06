@@ -15,7 +15,7 @@ export class StatisticsService {
 
   constructor(private http: HttpClient, private url: UrlService) { }
 
-  getMovieStatistics(movieId: number): Observable<MovieRatings> {
-    return this.http.get<MovieRatings>(this.url.getLocalURL() + 'rating/movie/' + movieId, httpOptions)
+  getMovieStatistics(movieId: number): Observable<MovieRatings[]> {
+    return this.http.get<MovieRatings[]>(this.url.getServerURL() + 'rating/movie/' + movieId, httpOptions)
   }
 }

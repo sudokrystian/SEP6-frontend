@@ -13,6 +13,8 @@ import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
 import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
 
+import { NgxEchartsModule } from 'ngx-echarts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,9 @@ import { MovieStatisticsComponent } from './components/movie-statistics/movie-st
     HttpClientXsrfModule.withOptions({
       cookieName: 'hfian-vjarm-mg3216a4b6da13ryra451b3czf1d6a8f4d68g4a8-f1a6f1ety3a4f3d54gs6y1a3d2c1s6a5',
       headerName: 'HTTP_X_XSRF_TOKEN',
+    }),
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
     }),
   ],
   providers: [],
