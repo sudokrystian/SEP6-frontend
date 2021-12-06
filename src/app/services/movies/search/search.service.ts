@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UrlService} from "../../url/url.service";
-import {TrendingMovies} from "../../../models/trending-movies";
+import {TrendingMovies} from "../../../models/trending-movies.model";
 import {SearchPeople} from "../../../models/search-people";
 
 

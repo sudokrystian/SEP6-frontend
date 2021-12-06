@@ -5,7 +5,7 @@ import {SearchService} from "../../../../services/movies/search/search.service";
 @Component({
   selector: 'app-search-people',
   templateUrl: './search-people.component.html',
-  styleUrls: ['./search-people.component.css']
+  styleUrls: ['./search-people.component.scss']
 })
 export class SearchPeopleComponent implements OnInit {
 

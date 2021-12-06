@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../../../../services/movies/search/search.service";
-import {TrendingMovies} from "../../../../models/trending-movies";
+import {TrendingMovies} from "../../../../models/trending-movies.model";
 
 @Component({
   selector: 'app-search-movie',
   templateUrl: './search-movie.component.html',
-  styleUrls: ['./search-movie.component.css']
+  styleUrls: ['./search-movie.component.scss']
 })
 export class SearchMovieComponent implements OnInit {
 
