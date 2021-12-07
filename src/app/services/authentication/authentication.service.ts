@@ -1,25 +1,23 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {UrlService} from "../url/url.service";
-
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer'})
-};
+import {SessionStorageService} from "../session-storage/session-storage.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private httpOptions = {headers: this.session.getCookieHeader()};
 
-  constructor(private http: HttpClient, private url: UrlService) {
+  constructor(private http: HttpClient, private url: UrlService, private session: SessionStorageService) {
   }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(this.url.getServerURL() + 'login', {
       username,
       password
-    })
+    }, this.httpOptions)
   }
 
   register(username: string, email: string, password: string): Observable<any> {
@@ -27,10 +25,10 @@ export class AuthenticationService {
       username,
       email,
       password
-    }, httpOptions)
+    }, this.httpOptions)
   }
 
   logout() {
-    return this.http.get(this.url.getServerURL() + 'logout')
+    return this.http.get(this.url.getServerURL() + 'logout', this.httpOptions)
   }
 }

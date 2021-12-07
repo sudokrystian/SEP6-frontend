@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TrendingMovies} from 'src/app/models/trending-movies.model';
-
-const URL = 'https://django-webservice.azurewebsites.net/'
+import {UrlService} from "../url/url.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +10,10 @@ const URL = 'https://django-webservice.azurewebsites.net/'
 export class MoviesService {
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: UrlService) { }
 
   getTrendingMovies(): Observable<TrendingMovies> {
-    return this.http.get<TrendingMovies>(URL + '/movies/trending')
+    return this.http.get<TrendingMovies>(this.url.getServerURL() + '/movies/trending')
   }
 
 }

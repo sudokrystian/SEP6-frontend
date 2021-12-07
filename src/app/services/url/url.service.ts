@@ -6,7 +6,7 @@ import {Injectable} from '@angular/core';
 export class UrlService {
 
   private SERVER = 'https://django-webservice.azurewebsites.net/';
-  private LOCAL = 'http://localhost:8000/';
+  private LOCAL = 'http://localhost:8080/';
 
   constructor() {
   }

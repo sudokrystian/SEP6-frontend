@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SessionStorageModel} from "./SessionStorageModel";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -42,5 +43,9 @@ export class SessionStorageService {
         return '';
     }
     return '';
+  }
+
+  getCookieHeader(): HttpHeaders {
+    return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.getSessionToken()})
   }
 }
