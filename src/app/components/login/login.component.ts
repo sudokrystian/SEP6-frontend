@@ -36,18 +36,21 @@ export class LoginComponent implements OnInit {
     const password = sha256(this.loginFormGroup.get('password')?.value);
     this.api.login(username, password).subscribe({
         next: x => {
-          console.log("LOGIN: NEXT")
-          console.log(x);
+
           this.session.setUsername(username);
           this.session.setLoginStatus(true);
+          this.session.setSessionCookie(x.access);
+          console.log(`Submit login next: ${x}`);
         },
         error: err => {
-          // if (err.error==='Incorrect login or password'){
-          //   this.errorMessage = err.error
-          // } else{
+          if (err.error === 'Incorrect login or password'){
+            this.errorMessage = err.error;
+          } else if(err.error.detail === 'No active account found with the given credentials') {
+            this.errorMessage = err.error.detail;
+          }
             console.log("LOGIN: ERROR")
             console.log(err)
-          // }
+
         },
       });
   }

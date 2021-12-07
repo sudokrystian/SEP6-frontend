@@ -25,4 +25,22 @@ export class SessionStorageService {
   clear(){
     this.sessionStorage = new SessionStorageModel('', false);
   }
+
+  setSessionCookie(token: string) {
+    console.log('setting token');
+    if (this.sessionStorage)
+    this.sessionStorage.sessionToken = token;
+    console.log(this.sessionStorage?.sessionToken)
+  }
+
+  getSessionToken(): string | undefined {
+    console.log('getting token:' + this.sessionStorage?.sessionToken)
+    if (this.sessionStorage) {
+      if (this.sessionStorage.sessionToken){
+        return this.sessionStorage.sessionToken;
+      } else
+        return '';
+    }
+    return '';
+  }
 }

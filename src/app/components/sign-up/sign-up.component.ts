@@ -13,7 +13,9 @@ export class SignUpComponent implements OnInit {
   // @ts-ignore
   signupFormGroup: FormGroup;
 
-  errorMessage = '';
+  errorMessage:string = '';
+  messageToUser:string = '';
+  registered = false;
 
   constructor(private api: AuthenticationService,
               private fb: FormBuilder) {
@@ -49,11 +51,16 @@ export class SignUpComponent implements OnInit {
     const email = this.getEmail()
 
     if (password !== passwordRepeat) {
-      this.errorMessage = 'Passwords do not match try again'
+      this.messageToUser = 'Passwords do not match try again'
     }
 
     this.api.register(username, email, sha256(password)).subscribe({
-      error: (err) => this.errorMessage = err.value,
+      next: (res) => {
+        if (res.status === 200) {
+          this.registered = true;
+        }
+      },
+      error: (err) => console.log(err),
     });
   }
 
@@ -75,5 +82,7 @@ export class SignUpComponent implements OnInit {
 
   cancel() {
     this.signupFormGroup.reset()
+    this.errorMessage = '';
+    this.messageToUser = '';
   }
 }
