@@ -29,4 +29,8 @@ export class AuthenticationService {
       password
     }, httpOptions)
   }
+
+  logout() {
+    return this.http.get(this.url.getServerURL() + 'logout')
+  }
 }

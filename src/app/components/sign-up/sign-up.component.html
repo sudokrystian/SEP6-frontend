@@ -52,7 +52,8 @@
                  matTooltip="Confirm password by repeating it again"
                  matTooltipPosition="right">
         </mat-form-field>
-        <mat-error>{{errorMessage}}</mat-error>
+        <div class="successful-register" *ngIf="registered">'User registered successfully'</div>
+        <mat-error *ngIf="errorMessage!==''">{{errorMessage}}</mat-error>
       </mat-card-content>
       <div class="sign-up-button-wrapper">
         <button type="submit" [disabled]="!signupFormGroup.valid" mat-raised-button color="primary" class="sign-up-submit-button">Register
