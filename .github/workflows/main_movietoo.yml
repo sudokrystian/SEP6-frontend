@@ -58,4 +58,4 @@ jobs:
           app-name: 'movietoo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_43C355F52B5843808D0CDB02F60464CD }}
-          package: ./dist/webapp
+          package: ./dist/SEP6-frontend
