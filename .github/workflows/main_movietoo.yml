@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - SEPFrontEnd
+name: Build and deploy Node.js app to Azure Web App - movietoo
 
 on:
   push:
@@ -21,23 +21,19 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: npm install, build, and test
+      - name: npm install, and build
         run: |
-          npm ci
-          npm run build
-#          npm run test --if-present
-
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
-
+          npm install
+          npm run build --if-present
           
+      - name: Zip artifact for deployment
+        run: zip webapp.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: release.zip
+          path: webapp.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,13 +49,13 @@ jobs:
           name: node-app
           
       - name: unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip webapp.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'SEPFrontEnd'
+          app-name: 'movietoo'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E806483669B842239D5C16F8FC7EC868 }}
-          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_43C355F52B5843808D0CDB02F60464CD }}
+          package: ./dist/SEP6-frontend
