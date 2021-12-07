@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
 import { SearchPeopleComponent } from './components/global-components/search/search-people/search-people.component';
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
@@ -25,9 +26,10 @@ import { NgxEchartsModule } from 'ngx-echarts';
     SearchMovieComponent,
     LoginComponent,
     SignUpComponent,
-    TrendingMoviesComponent,
     SearchPeopleComponent,
-    MovieStatisticsComponent
+    MovieStatisticsComponent,
+    TrendingMoviesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
