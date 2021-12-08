@@ -20,7 +20,6 @@ export class SearchMovieComponent implements OnInit {
   constructor(
     private api: SearchService,
   ) {
-    // this.getMoviesDataFromAPI('fast')
   }
 
   ngOnInit(): void {

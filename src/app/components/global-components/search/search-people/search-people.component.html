@@ -2,9 +2,14 @@
   <div class="people-search-list">
     <div *ngFor="let data of _newPeopleData.results" class="people-list">
       <div class="people-poster-size">
+        <div *ngIf="data.profile_path !== null; else defaultPeopleText">
         <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.profile_path}}"
              alt="poster"
              class="people-poster"/>
+        </div>
+        <ng-template #defaultPeopleText>
+          <h2 class="profile-not-found">Profile Not Found</h2>
+        </ng-template>
       </div>
       <div class="people-information-div">
         <h2>{{data.name}}</h2>
@@ -20,7 +25,7 @@
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
 
-    <p>Page {{_newPeopleData.page}} of {{_newPeopleData.total_pages}}</p>
+    <p class="people-pagination-text">Page {{_newPeopleData.page}} of {{_newPeopleData.total_pages}}</p>
 
     <button mat-button (click)="nextPage()">
       <mat-icon>keyboard_arrow_right</mat-icon>

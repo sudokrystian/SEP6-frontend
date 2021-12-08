@@ -19,10 +19,10 @@
         <input matInput placeholder="Micheal Bay" type="text" formControlName="search">
       </mat-form-field>
       <button mat-button (submit)="submitSearch()" class="search-submit-button">
-        <mat-icon>search</mat-icon>
+        <mat-icon color="primary">search</mat-icon>
       </button>
       <button mat-button (click)="resetSearch()" class="search-reset-button">
-        <mat-icon>backspace</mat-icon>
+        <mat-icon color="primary">backspace</mat-icon>
       </button>
     </mat-card-content>
 
@@ -33,7 +33,16 @@
 <app-search-people></app-search-people>
 
   <div [hidden]="isTrendingHidden">
-    <app-trending-movies></app-trending-movies>
-  </div>
 
+    <h2 class="trending-movie-week-text">Trending Movies This Week:</h2>
+    <div class="trending-movie-week">
+      <app-trending-movies></app-trending-movies>
+    </div>
+
+    <h2 class="trending-people-week-text">Trending People This Week:</h2>
+    <div class="trending-people-week">
+      <app-trending-people></app-trending-people>
+    </div>
+
+  </div>
 </div>

@@ -43,7 +43,7 @@
 }
 
 .movie-list:hover .movie-poster-size {
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 .movie-list:hover .information-div {
@@ -55,4 +55,13 @@
   justify-content: center;
   align-items: center;
   margin: 1%;
+}
+
+.poster-not-found {
+  font-size: 30px;
+  color: white;
+}
+
+.movie-pagination-text {
+  color: white;
 }
