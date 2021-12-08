@@ -1,7 +1,10 @@
+$primary-color: #303030;
+
 .mat-card-outer {
   width: 50%;
   height: 55px;
   margin: 1% 25%;
+  background-color: $primary-color;
 }
 
 .search-form {
@@ -12,10 +15,15 @@
   width: 50%;
 }
 
-.search-submit-button {
-
-}
-
 .search-form-options {
   width: 10%;
+}
+
+.trending-movie-week-text, .trending-people-week-text {
+  color: white;
+  margin-left: 5%;
+}
+
+.trending-movie-week, .trending-people-week {
+  margin-bottom: 3%;
 }

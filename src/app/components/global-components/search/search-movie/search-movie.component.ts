@@ -10,7 +10,7 @@ import {TrendingMovies} from "../../../../models/trending-movies.model";
 export class SearchMovieComponent implements OnInit {
 
   // @ts-ignore
-  _newMovieData: TrendingMovies
+  _newMovieData: TrendingMovies | undefined
 
   // Poster size in pixels
   posterSize: number = 300;
@@ -37,17 +37,25 @@ export class SearchMovieComponent implements OnInit {
     })
   }
 
+  clearMovieData() {
+    this._newMovieData = undefined
+  }
+
   nextPage() {
-    if (this._newMovieData.page < this._newMovieData.total_pages) {
-      this.pageNumber++
-      this.getMoviesDataFromAPI(this.searchBy)
+    if (this._newMovieData) {
+      if (this._newMovieData.page < this._newMovieData.total_pages) {
+        this.pageNumber++
+        this.getMoviesDataFromAPI(this.searchBy)
+      }
     }
   }
 
   previousPage() {
-    if (this._newMovieData.page <= this._newMovieData.total_pages) {
-      this.pageNumber--
-      this.getMoviesDataFromAPI(this.searchBy)
+    if (this._newMovieData) {
+      if (this._newMovieData.page <= this._newMovieData.total_pages) {
+        this.pageNumber--
+        this.getMoviesDataFromAPI(this.searchBy)
+      }
     }
   }
 }

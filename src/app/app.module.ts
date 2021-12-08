@@ -18,6 +18,8 @@ import { NavbarComponent } from './components/global-components/navbar/navbar.co
 import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
+import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     SearchPeopleComponent,
     MovieStatisticsComponent,
     TrendingMoviesComponent,
-    NavbarComponent
+    NavbarComponent,
+    TrendingPeopleComponent
   ],
   imports: [
     BrowserModule,

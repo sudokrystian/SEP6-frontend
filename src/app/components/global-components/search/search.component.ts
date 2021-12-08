@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   // @ts-ignore
   searchFormGroup: FormGroup;
   selectedOption = 'movie';
+  isTrendingHidden: boolean = false
 
   options: Option[] = [
     {value: 'movie', viewValue: 'Movie'},
@@ -49,15 +50,30 @@ export class SearchComponent implements OnInit {
 
     console.log(optionsValue)
     if (optionsValue === 'movie' && searchValue !== '') {
+      this.childSearchPeople?.clearPeopleData()
+      this.isTrendingHidden = true
       this.childSearchMovie?.getMoviesDataFromAPI(searchValue)
     } if (optionsValue === 'people' && searchValue !== '') {
+      this.childSearchMovie?.clearMovieData()
+      this.isTrendingHidden = true
       this.childSearchPeople?.getPeopleDataFromAPI(searchValue)
+    } if (searchValue === '') {
+      this.childSearchPeople?.clearPeopleData()
+      this.childSearchMovie?.clearMovieData()
+      this.isTrendingHidden = false
     }
   }
 
   submitSearch() {
     this.sendSearchToApi()
     console.log('Search Submitted')
+  }
+
+  resetSearch() {
+    this.searchFormGroup.reset({
+      search: '',
+      option: 'movie'
+    })
   }
 
 }

@@ -15,29 +15,29 @@ $text-color: white;
   background-color: $primary-color;
 }
 
-.trending-movie-carousel {
+.trending-people-carousel {
   display: flex;
   flex-direction: row;
   width: $carousel-width;
   height: $keen-slider-height;
 }
 
-.trending-movie-cell {
+.trending-people-cell {
   position: relative;
   align-items: center;
   width: 300px;
 }
 
-.trending-movie-img-wrapper{
+.trending-people-img-wrapper{
   width: 100%;
   align-items: center;
-.trending-movie-poster {
-   opacity: 1;
-   transition: .5s ease;
-   backface-visibility: hidden;
- }}
+  .trending-people-poster {
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }}
 
-.trending-movie-info-wrapper {
+.trending-people-info-wrapper {
   width: 300px;
   overflow: hidden;
   transition: .5s ease;
@@ -46,11 +46,8 @@ $text-color: white;
   color: white;
   top: 50%;
 
-  .trending-movie-title {
 
-  }
-
-  .trending-movie-description{
+  .trending-people-info-wrapper{
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -58,11 +55,11 @@ $text-color: white;
   }
 }
 
-.trending-movie-cell:hover .trending-movie-carousel-movie-poster {
+.trending-people-cell:hover .trending-person-poster {
   opacity: 0.1;
 }
 
-.trending-movie-cell:hover .trending-movie-info-wrapper {
+.trending-people-cell:hover .trending-people-info-wrapper {
   opacity: 1;
 }
 
