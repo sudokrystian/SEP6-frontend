@@ -3,6 +3,8 @@ import { TrendingMovies } from 'src/app/models/trending-movies.model';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import 'keen-slider/keen-slider.min.css'
 import KeenSlider from 'keen-slider'
+import {MatDialog} from '@angular/material/dialog';
+import { UserListsComponent } from '../user-lists/user-lists.component';
 
 @Component({
   selector: 'app-trending-movies',
@@ -18,9 +20,7 @@ export class TrendingMoviesComponent implements OnInit {
   // Poster size in pixels
   posterSize: number = 200;
 
-  numbers = [1, 2, 3, 4, 5]
-
-  constructor(private api: MoviesService) { }
+  constructor(private api: MoviesService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadMovies()
@@ -61,9 +61,13 @@ export class TrendingMoviesComponent implements OnInit {
     })
   }
 
-  openAddToListDialog(movieId: number) {
-    
+  openAddToListDialog(movieId: number, movieTitle: string) {
+    this.dialog.open(UserListsComponent, {
+      data: {
+        movieTitle: movieTitle,
+        movieId: movieId,
+      },
+    });
   }
-
 
 }

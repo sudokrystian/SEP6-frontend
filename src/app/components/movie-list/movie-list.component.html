@@ -1,9 +1,8 @@
-<div *ngIf="movieList">
+<div *ngIf="movieList; else emptyList">
     <div *ngFor="let list of movieList">
         <h3>{{list.list_name}}</h3>
         <p *ngFor="let movie of list.movies">{{movie.title}}</p>
     </div>
 </div>
-
-<app-user-lists></app-user-lists>
+<ng-template #emptyList>{{movieListsErrorMessage}}</ng-template>
 

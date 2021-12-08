@@ -14,14 +14,14 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.url.getServerURL() + 'login', {
+    return this.http.post(this.url.getLocalURL() + 'login', {
       username,
       password
     }, this.httpOptions)
   }
 
   register(username: string, email: string, password: string): Observable<any> {
-    return this.http.put(this.url.getServerURL() + 'register', {
+    return this.http.put(this.url.getLocalURL() + 'register', {
       username,
       email,
       password

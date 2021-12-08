@@ -11,6 +11,8 @@ export class MovieListComponent implements OnInit {
 
   movieList: MovieListDetails[] | undefined;
 
+  movieListsErrorMessage: string = 'You have no existing movie lists.';
+
   constructor(private api: MovieListService) { }
 
   ngOnInit(): void {
@@ -26,6 +28,9 @@ export class MovieListComponent implements OnInit {
       error: error => {
         console.log("Error");
         console.log(error);
+        if(error.status == 401) {
+          this.movieListsErrorMessage = "Log in to see your movie lists"
+        }
       }
     })
   }

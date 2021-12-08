@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import {AngularMaterialModule} from "./angular-material.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {SearchComponent} from './components/global-components/search/search.component';
@@ -44,6 +44,7 @@ import { UserListsComponent } from './components/user-lists/user-lists.component
     AppRoutingModule,
     AngularMaterialModule,
     FormsModule,
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({

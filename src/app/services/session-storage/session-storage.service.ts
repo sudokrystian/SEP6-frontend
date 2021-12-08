@@ -40,12 +40,16 @@ export class SessionStorageService {
       if (this.sessionStorage.sessionToken){
         return this.sessionStorage.sessionToken;
       } else
-        return '';
+        return undefined;
     }
-    return '';
+    return undefined;
   }
 
   getCookieHeader(): HttpHeaders {
-    return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.getSessionToken()})
+    if(this.getSessionToken() === undefined) {
+      return new HttpHeaders({'Content-Type': 'application/json'})
+    } else {
+      return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.getSessionToken()})
+    }
   }
 }

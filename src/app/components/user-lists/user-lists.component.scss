@@ -15,3 +15,9 @@
 .error-create-list {
     color: red;
 }
+
+.user-list-dialog-action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
