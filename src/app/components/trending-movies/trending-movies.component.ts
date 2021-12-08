@@ -61,5 +61,9 @@ export class TrendingMoviesComponent implements OnInit {
     })
   }
 
+  openAddToListDialog(movieId: number) {
+    
+  }
+
 
 }

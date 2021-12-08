@@ -19,6 +19,8 @@ import { MovieStatisticsComponent } from './components/movie-statistics/movie-st
 
 import { NgxEchartsModule } from 'ngx-echarts';
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { UserListsComponent } from './components/user-lists/user-lists.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {TrendingPeopleComponent} from "./components/trending-people/trending-peo
     MovieStatisticsComponent,
     TrendingMoviesComponent,
     NavbarComponent,
-    TrendingPeopleComponent
+    TrendingPeopleComponent,
+    MovieListComponent,
+    UserListsComponent
   ],
   imports: [
     BrowserModule,

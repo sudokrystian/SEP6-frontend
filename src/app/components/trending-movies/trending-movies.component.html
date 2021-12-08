@@ -11,6 +11,7 @@
         <img *ngIf="posterSize"
              class="trending-movie-carousel-movie-poster"
              src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{movie.poster_path}}" alt="poster"/>
+             <button (click)="openAddToListDialog(movie.id)">Add to list</button>
       </div>
       <div class="trending-movie-info-wrapper">
         <h2 class="trending-movie-title">{{ movie.original_title }}</h2>

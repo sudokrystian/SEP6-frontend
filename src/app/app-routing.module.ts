@@ -6,16 +6,15 @@ import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {TrendingMoviesComponent} from "./components/trending-movies/trending-movies.component";
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
+import { MovieListComponent } from "./components/movie-list/movie-list.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: SignUpComponent},
   {path: '', pathMatch: 'full', redirectTo: '/home'},
-  {path: 'search', component: SearchComponent},
-  {path: '', pathMatch: 'full', component: LoginComponent},
   {path: 'trending', component: TrendingMoviesComponent},
-  {path: 'navbar', component: NavbarComponent},
-  // {path: 'home', component: }
+  {path: 'home', component: SearchComponent},
+  {path: 'list', component: MovieListComponent},
   {path: 'trendingPeople', component: TrendingPeopleComponent}
 ];
 
