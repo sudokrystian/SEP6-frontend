@@ -29,7 +29,6 @@ export class AuthenticationService {
   }
 
   logout() {
-    console.log("log out")
     return this.http.get(this.url.getServerURL() + 'logout', this.httpOptions)
   }
 }
