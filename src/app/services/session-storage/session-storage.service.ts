@@ -48,4 +48,8 @@ export class SessionStorageService {
   getCookieHeader(): HttpHeaders {
     return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.getSessionToken()})
   }
+
+  getLoginStatus():boolean {
+    return  <boolean>this.sessionStorage?.loggedIn
+  }
 }

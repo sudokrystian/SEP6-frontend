@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
-import { TrendingMovies } from 'src/app/models/trending-movies.model';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {TrendingMovies} from 'src/app/models/trending-movies.model';
+import {MoviesService} from 'src/app/services/movies/movies.service';
 import 'keen-slider/keen-slider.min.css'
 import KeenSlider from 'keen-slider'
 
