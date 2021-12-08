@@ -14,19 +14,19 @@ export class MovieListService {
   constructor(private http: HttpClient, private url: UrlService, private session: SessionStorageService) { }
 
   getUserLists(): Observable<MovieList[]> {
-    return this.http.get<MovieList[]>(this.url.getLocalURL() + 'list', {headers: this.session.getCookieHeader()})
+    return this.http.get<MovieList[]>(this.url.getServerURL() + 'list', {headers: this.session.getCookieHeader()})
   }
 
   getDetailedUserLists(): Observable<MovieListDetails[]> {
-    return this.http.get<MovieListDetails[]>(this.url.getLocalURL() + 'list/details', {headers: this.session.getCookieHeader()})
+    return this.http.get<MovieListDetails[]>(this.url.getServerURL() + 'list/details', {headers: this.session.getCookieHeader()})
   }
 
   createList(listName: string): Observable<any> {
-    return this.http.put(this.url.getLocalURL() + 'list', {list_name: listName}, {headers: this.session.getCookieHeader()})
+    return this.http.put(this.url.getServerURL() + 'list', {list_name: listName}, {headers: this.session.getCookieHeader()})
   }
 
   addMovieToList(listId: number, movieId: number) {
-    return this.http.put(this.url.getLocalURL() + 'list/movies', {list_id: listId, movie_id: movieId}, {headers: this.session.getCookieHeader()})
+    return this.http.put(this.url.getServerURL() + 'list/movies', {list_id: listId, movie_id: movieId}, {headers: this.session.getCookieHeader()})
   }
 
 

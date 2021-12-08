@@ -38,7 +38,6 @@ export class TrendingMoviesComponent implements OnInit {
       })
     }
     );
-
   }
 
   ngOnDestroy() {
