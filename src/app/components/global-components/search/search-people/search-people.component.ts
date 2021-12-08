@@ -23,6 +23,7 @@ export class SearchPeopleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getPeopleDataFromAPI('tom')
   }
 
   getPeopleDataFromAPI(searchName: string) {

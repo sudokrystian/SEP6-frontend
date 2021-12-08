@@ -1,15 +1,14 @@
 <div *ngIf="_newMovieData" class="search-movie-wrapper">
-  <div class="outer-div">
+  <div class="movie-search-list">
     <div *ngFor="let data of _newMovieData.results" class="movie-list">
-      <div class="poster-size">
+      <div class="movie-poster-size">
         <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.poster_path}}"
-             alt="poster"
-             class="movie-poster"/>
+             alt="poster"/>
       </div>
       <div class="information-div">
         <h2>{{data.title}}</h2>
         <p>({{data.release_date}})</p>
-        <p class="information-div-test">{{data.overview}}</p>
+        <p class="information-div-overview">{{data.overview}}</p>
       </div>
     </div>
   </div>

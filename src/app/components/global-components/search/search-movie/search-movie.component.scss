@@ -1,4 +1,4 @@
-.outer-div {
+.movie-search-list {
   margin-left: 5%;
   margin-right: 5%;
   width: 100%;
@@ -11,7 +11,7 @@
   position: relative;
 }
 
-.poster-size {
+.movie-poster-size {
   opacity: 1;
   display: block;
   width: 100%;
@@ -26,16 +26,14 @@
   position: absolute;
   top: 50%;
   width: 290px;
-  //left: 50%;
   transform: translate(-8%, -10%);
-  //-ms-transform: translate(-50%, -50%);
 
   color: white;
   font-size: 16px;
   padding: 16px 32px;
 }
 
-.information-div-test {
+.information-div-overview {
   white-space: break-spaces;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -44,7 +42,7 @@
   -webkit-box-orient: vertical;
 }
 
-.movie-list:hover .poster-size {
+.movie-list:hover .movie-poster-size {
   opacity: 0.3;
 }
 
@@ -58,38 +56,3 @@
   align-items: center;
   margin: 1%;
 }
-
-
-//.outer-div {
-//  margin-left: 5%;
-//  margin-right: 5%;
-//  width: 100%;
-//
-//  display: grid;
-//  grid-template-columns: repeat(5, 1fr);
-//
-//}
-//
-//.movie-list {
-//  margin-bottom: 3%;
-//}
-//
-//.poster-size {
-//  width: 300px;
-//  height: 500px;
-//}
-//
-//.information-div {
-//  width: 300px;
-//}
-//.information-div-test {
-//  white-space: break-spaces;
-//  overflow: hidden;
-//  text-overflow: ellipsis;
-//  display: -webkit-box;
-//  -webkit-line-clamp: 3;
-//  -webkit-box-orient: vertical;
-//}
-//
-
-
