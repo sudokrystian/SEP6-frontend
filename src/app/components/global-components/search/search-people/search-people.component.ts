@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SearchPeople} from "../../../../models/search-people";
 import {SearchService} from "../../../../services/movies/search/search.service";
 
@@ -10,7 +10,7 @@ import {SearchService} from "../../../../services/movies/search/search.service";
 export class SearchPeopleComponent implements OnInit {
 
   // @ts-ignore
-  _newPeopleData: SearchPeople
+  _newPeopleData: SearchPeople | undefined
 
   // Poster size in pixels
   posterSize: number = 300;
@@ -19,7 +19,8 @@ export class SearchPeopleComponent implements OnInit {
 
   constructor(
     private api: SearchService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -36,17 +37,25 @@ export class SearchPeopleComponent implements OnInit {
     })
   }
 
+  clearPeopleData() {
+    this._newPeopleData = undefined
+  }
+
   nextPage() {
-    if (this._newPeopleData.page < this._newPeopleData.total_pages) {
-      this.pageNumber++
-      this.getPeopleDataFromAPI(this.searchBy)
+    if (this._newPeopleData) {
+      if (this._newPeopleData.page < this._newPeopleData.total_pages) {
+        this.pageNumber++
+        this.getPeopleDataFromAPI(this.searchBy)
+      }
     }
   }
 
   previousPage() {
-    if (this._newPeopleData.page <= this._newPeopleData.total_pages) {
-      this.pageNumber--
-      this.getPeopleDataFromAPI(this.searchBy)
+    if (this._newPeopleData) {
+      if (this._newPeopleData.page <= this._newPeopleData.total_pages) {
+        this.pageNumber--
+        this.getPeopleDataFromAPI(this.searchBy)
+      }
     }
   }
 

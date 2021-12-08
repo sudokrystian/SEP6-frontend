@@ -10,10 +10,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: SignUpComponent},
   {path: '', pathMatch: 'full', redirectTo: '/home'},
-  {path: 'home', component: SearchComponent},
+  {path: 'search', component: SearchComponent},
   {path: '', pathMatch: 'full', component: LoginComponent},
   {path: 'trending', component: TrendingMoviesComponent},
-  {path: 'navbar', component: NavbarComponent}
+  {path: 'navbar', component: NavbarComponent},
+  // {path: 'home', component: }
 ];
 
 @NgModule({
