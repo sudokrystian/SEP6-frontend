@@ -1,8 +1,21 @@
-<div *ngIf="movieList; else emptyList">
-    <div *ngFor="let list of movieList">
-        <h3>{{list.list_name}}</h3>
-        <p *ngFor="let movie of list.movies">{{movie.title}}</p>
+<div *ngIf="movieList; else emptyList" class="movie-list-container">
+  <div *ngFor="let list of movieList">
+    <h2>List: {{ list.list_name }}</h2>
+    <div *ngIf="list.movies.length !== 0; else noMovies">
+      <div *ngFor="let movie of list.movies" class="movie-list-div">
+        <img
+          class=""
+          src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}"
+          alt="poster"
+        />
+        <div class="">
+          <h2 class="">{{ movie.original_title }}</h2>
+          <p>{{ movie.release_date }}</p>
+          <p class="">{{ movie.overview }}</p>
+        </div>
+      </div>
     </div>
+    <ng-template #noMovies>The list is empty</ng-template>
+  </div>
 </div>
-<ng-template #emptyList>{{movieListsErrorMessage}}</ng-template>
-
+<ng-template #emptyList>{{ movieListsErrorMessage }}</ng-template>
