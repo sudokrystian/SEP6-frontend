@@ -41,6 +41,10 @@ export class SearchMovieComponent implements OnInit {
     this._newMovieData = undefined
   }
 
+  moviePosterClicked(id: number) {
+    console.log(id)
+  }
+
   nextPage() {
     if (this._newMovieData) {
       if (this._newMovieData.page < this._newMovieData.total_pages) {

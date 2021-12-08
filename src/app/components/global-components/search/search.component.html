@@ -18,11 +18,11 @@
         <mat-label>Search Movies...</mat-label>
         <input matInput placeholder="Micheal Bay" type="text" formControlName="search">
       </mat-form-field>
-      <button mat-button (submit)="submitSearch()" class="search-submit-button">
-        <mat-icon color="primary">search</mat-icon>
+      <button mat-button color="primary" (submit)="submitSearch()" class="search-submit-button">
+        <mat-icon >search</mat-icon>
       </button>
-      <button mat-button (click)="resetSearch()" class="search-reset-button">
-        <mat-icon color="primary">backspace</mat-icon>
+      <button mat-button color="primary" (click)="resetSearch()" class="search-reset-button">
+        Reset
       </button>
     </mat-card-content>
 

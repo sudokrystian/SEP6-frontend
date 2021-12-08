@@ -5,6 +5,7 @@
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 5px;
 }
 
 .people-list {
@@ -50,6 +51,8 @@
 
 .profile-not-found {
   font-size: 30px;
+  height: 450px;
+  width: 290px;
   color: white;
 }
 

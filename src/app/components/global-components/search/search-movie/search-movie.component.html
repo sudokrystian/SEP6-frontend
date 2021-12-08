@@ -2,12 +2,12 @@
   <div class="movie-search-list">
     <div *ngFor="let data of _newMovieData.results" class="movie-list">
       <div class="movie-poster-size">
-        <div *ngIf="data.poster_path !== null; else defaultMovieText">
+        <div *ngIf="data.poster_path !== null; else defaultMovieText" (click)="moviePosterClicked(data.id)">
           <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.poster_path}}"
                alt="poster"/>
         </div>
         <ng-template #defaultMovieText>
-          <h2 class="poster-not-found">Poster Not Found</h2>
+          <h2 class="poster-not-found" (click)="moviePosterClicked(data.id)">Poster Not Found</h2>
         </ng-template>
       </div>
       <div class="information-div">

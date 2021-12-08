@@ -41,6 +41,10 @@ export class SearchPeopleComponent implements OnInit {
     this._newPeopleData = undefined
   }
 
+  peoplePictureClicked(id: number) {
+    console.log(id)
+  }
+
   nextPage() {
     if (this._newPeopleData) {
       if (this._newPeopleData.page < this._newPeopleData.total_pages) {
