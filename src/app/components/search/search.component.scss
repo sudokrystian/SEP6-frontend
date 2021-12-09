@@ -9,10 +9,18 @@ $primary-color: #303030;
 
 .search-form {
   text-align: center;
+  
+  .mat-form-field-infix {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .search-form-full {
   width: 50%;
+  input {
+    color: white;
+  }
 }
 
 .search-form-options {
@@ -26,4 +34,19 @@ $primary-color: #303030;
 
 .trending-movie-week, .trending-people-week {
   margin-bottom: 3%;
+}
+
+.search-reset-button {
+  height: 10px;
+  position: absolute;
+  right: 1%;
+  top: -18%;
+  &:hover {
+    color: red;
+  }
+}
+
+.row-search {
+  display: flex;
+  flex-direction: row;
 }
