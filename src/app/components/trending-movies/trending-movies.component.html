@@ -12,11 +12,11 @@
              class="trending-movie-carousel-movie-poster"
              src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{movie.poster_path}}" alt="poster"/>
       </div>
-      <button (click)="openAddToListDialog(movie.id, movie.title)">Add to list</button>
       <div class="trending-movie-info-wrapper">
         <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
         <p>{{ movie.release_date }}</p>
         <p class="trending-movie-description">{{ movie.overview }}</p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="add-icon" (click)="openAddToListDialog(movie.id, movie.title)">add</mat-icon>
       </div>
     </div>
   </div>

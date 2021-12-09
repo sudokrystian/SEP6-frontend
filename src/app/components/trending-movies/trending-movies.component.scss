@@ -46,10 +46,6 @@ $text-color: white;
   color: white;
   top: 50%;
 
-  .trending-movie-title {
-
-  }
-
   .trending-movie-description{
     overflow: hidden;
     display: -webkit-box;
@@ -78,4 +74,9 @@ $text-color: white;
   }
 }
 
+.add-icon {
+  &:hover {
+    color: #69f0ae;
+  }
+}
 
