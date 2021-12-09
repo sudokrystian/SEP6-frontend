@@ -1,8 +1,29 @@
 .movie-list-container {
+    margin-top: 50px;
     color: white;
+}
+
+.my-list-title {
+    padding: 0px 10px;
+    margin: 0;
+}
+
+.spacer-list {
+    width: 95%;
+    border-top: 1px solid grey;
+    margin: 5px 0 15px 0;
 }
 
 .movie-list-div {
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.movie-details {
+    padding-left: 15px;
+}
+
+.empty-list {
+    margin-left: 15px;
 }
