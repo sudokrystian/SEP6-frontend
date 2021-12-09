@@ -2,7 +2,7 @@
   <div>
     <a mat-button routerLink="/home">Home</a>
     <a mat-button routerLink="/trending">Discover</a>
-    <a *ngIf="this.authenticationService.isLoggedIn()" mat-button routerLink="/myList">My List </a>
+    <a *ngIf="this.authenticationService.isLoggedIn()" mat-button routerLink="/myList">My Lists</a>
   </div>
   <div>
     <div class="logout" *ngIf="this.authenticationService.isLoggedIn() else elseBlock">
@@ -13,6 +13,7 @@
     <div class="login">
       <ng-template #elseBlock>
         <a mat-button routerLink="/login">Login</a>
+        <a mat-button routerLink="/register">Register</a>
       </ng-template>
     </div>
   </div>
