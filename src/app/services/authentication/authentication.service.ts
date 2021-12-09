@@ -25,7 +25,7 @@ export class AuthenticationService {
       username,
       email,
       password
-    }, this.httpOptions)
+    })
   }
 
   logout() {
