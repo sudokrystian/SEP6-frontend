@@ -1,26 +1,40 @@
-<div *ngIf="trendingMovies" class="carousel">
-  <button mat-button class="button-carousel" (click)="slider.next()">
-    <h1 class="shift-icon">&#10094;</h1>
-  </button>
-  <div class="keen-slider trending-movie-carousel" #sliderRef>
-    <div
-      *ngFor="let movie of trendingMovies.results"
-      class="keen-slider__slide trending-movie-cell"
-    >
-      <div class="trending-movie-img-wrapper">
-        <img *ngIf="posterSize"
-             class="trending-movie-carousel-movie-poster"
-             src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{movie.poster_path}}" alt="poster"/>
-      </div>
-      <mat-icon aria-hidden="false" aria-label="Example home icon" class="add-icon" (click)="openAddToListDialog(movie.id, movie.title)">add</mat-icon>
-      <div class="trending-movie-info-wrapper">
-        <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
-        <p>{{ movie.release_date }}</p>
-        <p class="trending-movie-description">{{ movie.overview }}</p>
+<div *ngIf="trendingMovies">
+  <h2 class="trending-movie-week-text">Trending Movies This Week:</h2>
+  <div class="carousel">
+    <button mat-button class="button-carousel" (click)="slider.next()">
+      <h1 class="shift-icon">&#10094;</h1>
+    </button>
+    <div class="keen-slider trending-movie-carousel" #sliderRef>
+      <div
+        *ngFor="let movie of trendingMovies.results"
+        class="keen-slider__slide trending-movie-cell"
+      >
+        <div class="trending-movie-img-wrapper">
+          <img
+            *ngIf="posterSize"
+            class="trending-movie-carousel-movie-poster"
+            src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
+              movie.poster_path
+            }}"
+            alt="poster"
+          />
+        </div>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          class="add-icon"
+          (click)="openAddToListDialog(movie.id, movie.title)"
+          >add</mat-icon
+        >
+        <div class="trending-movie-info-wrapper">
+          <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
+          <p>{{ movie.release_date }}</p>
+          <p class="trending-movie-description">{{ movie.overview }}</p>
+        </div>
       </div>
     </div>
+    <button mat-button class="button-carousel" (click)="slider.prev()">
+      <h1 class="shift-icon">&#10095;</h1>
+    </button>
   </div>
-  <button mat-button class="button-carousel" (click)="slider.prev()">
-    <h1 class="shift-icon">&#10095;</h1>
-  </button>
 </div>
