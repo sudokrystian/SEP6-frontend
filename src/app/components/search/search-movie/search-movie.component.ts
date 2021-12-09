@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SearchService} from "../../../../services/movies/search/search.service";
-import {TrendingMovies} from "../../../../models/trending-movies.model";
+import {SearchService} from "../../../services/movies/search/search.service";
+import {TrendingMovies} from "../../../models/trending-movies.model";
 
 @Component({
   selector: 'app-search-movie',

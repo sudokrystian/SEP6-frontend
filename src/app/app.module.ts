@@ -6,19 +6,20 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AngularMaterialModule} from "./angular-material.module";
 import {AppRoutingModule} from "./app-routing.module";
-import {SearchComponent} from './components/global-components/search/search.component';
-import {SearchMovieComponent} from './components/global-components/search/search-movie/search-movie.component';
+import {SearchComponent} from './components/search/search.component';
+import {SearchMovieComponent} from './components/search/search-movie/search-movie.component';
 import {LoginComponent} from './components/login/login.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
-import { SearchPeopleComponent } from './components/global-components/search/search-people/search-people.component';
+import { SearchPeopleComponent } from './components/search/search-people/search-people.component';
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
 import { NavbarComponent } from './components/global-components/navbar/navbar.component';
 import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
 
 import { NgxEchartsModule } from 'ngx-echarts';
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {TrendingPeopleComponent} from "./components/trending-people/trending-peo
     MovieStatisticsComponent,
     TrendingMoviesComponent,
     NavbarComponent,
-    TrendingPeopleComponent
+    TrendingPeopleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
