@@ -1,30 +1,37 @@
-<div *ngIf="trendingPeople" class="carousel">
-  <button mat-button class="button-carousel" (click)="slider.next()">
-    <h1 class="shift-icon">&#10094;</h1>
-  </button>
+<div *ngIf="trendingPeople">
+  <h2 class="trending-people-week-text">Trending People This Week:</h2>
+  <div class="carousel">
+    <button mat-button class="button-carousel" (click)="slider.next()">
+      <h1 class="shift-icon">&#10094;</h1>
+    </button>
 
-  <div class="keen-slider trending-people-carousel" #sliderRef>
-    <div
-      *ngFor="let person of trendingPeople.results"
-      class="keen-slider__slide trending-people-cell">
+    <div class="keen-slider trending-people-carousel" #sliderRef>
+      <div
+        *ngFor="let person of trendingPeople.results"
+        class="keen-slider__slide trending-people-cell"
+      >
+        <div class="trending-people-img-wrapper">
+          <img
+            *ngIf="posterSize"
+            class="trending-person-poster"
+            src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
+              person.profile_path
+            }}"
+            alt="poster"
+          />
+        </div>
 
-      <div class="trending-people-img-wrapper">
-        <img *ngIf="posterSize"
-             class="trending-person-poster"
-             src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{person.profile_path}}" alt="poster"/>
-      </div>
-
-      <div class="trending-people-info-wrapper">
-        <h2 class="trending-person-name">{{ person.name }}</h2>
-        <h3>Known for : {{ person.known_for_department }}</h3>
-        <h4 class="trending-person-known-for">Best known for : {{ person.known_for[0].title }}</h4>
+        <div class="trending-people-info-wrapper">
+          <h2 class="trending-person-name">{{ person.name }}</h2>
+          <h3>Known for : {{ person.known_for_department }}</h3>
+          <h4 class="trending-person-known-for">
+            Best known for : {{ person.known_for[0].title }}
+          </h4>
+        </div>
       </div>
     </div>
-
+    <button mat-button class="button-carousel" (click)="slider.prev()">
+      <h1 class="shift-icon">&#10095;</h1>
+    </button>
   </div>
-  <button mat-button class="button-carousel" (click)="slider.prev()">
-    <h1 class="shift-icon">&#10095;</h1>
-  </button>
 </div>
-
-

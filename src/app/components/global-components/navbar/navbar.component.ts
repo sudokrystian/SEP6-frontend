@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { SessionStorageService } from "../../../services/session-storage/session-storage.service";
 import { AuthenticationService } from "../../../services/authentication/authentication.service";
 import { Router } from "@angular/router";
+// import { logo } from "../../../../assets/logo.png"
 
 @Component({
   selector: 'app-navbar',

@@ -1,6 +1,6 @@
 <mat-toolbar class="navbar" color="primary">
-  <div>
-    <a mat-button routerLink="/home">Home</a>
+  <div class="navbar-utility-tabs">
+    <img mat-button routerLink="/home" class="logo" src="../../../../assets/logo.png" alt="logo">
     <a mat-button routerLink="/trending">Discover</a>
     <a *ngIf="this.authenticationService.isLoggedIn()" mat-button routerLink="/myList">My Lists</a>
   </div>

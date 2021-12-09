@@ -2,7 +2,8 @@ $carousel-height: 400px;
 $keen-slider-height: 300px;
 $carousel-width: 90%;
 $primary-color: #303030;
-$carousel-wrapper-color: #dde5e7;
+// $carousel-wrapper-color: #DDE5E7;
+$carousel-wrapper-color: #45A29E;
 $carousel-item-hover-color: rgb(109, 109, 109);
 $text-color: white;
 $poster-size: 200px;
@@ -23,7 +24,7 @@ $poster-size: 200px;
   width: 100%;
   height: $carousel-height;
   background-color: $carousel-wrapper-color;
-  // overflow: hidden;
+  overflow: hidden;
 
   .trending-movie-carousel {
     display: flex;
