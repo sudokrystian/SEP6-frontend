@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {sha256} from 'js-sha256';
 import {AuthenticationService} from "../../services/authentication/authentication.service";
 import {SessionStorageService} from "../../services/session-storage/session-storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private api: AuthenticationService,
-              private session: SessionStorageService) {
+              private session: SessionStorageService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -36,11 +38,11 @@ export class LoginComponent implements OnInit {
     const password = sha256(this.loginFormGroup.get('password')?.value);
     this.api.login(username, password).subscribe({
         next: x => {
-
           this.session.setUsername(username);
           this.session.setLoginStatus(true);
           this.session.setSessionCookie(x.access);
           console.log(`Submit login next: ${x}`);
+          this.router.navigateByUrl('/');
         },
         error: err => {
           if (err.error === 'Incorrect login or password'){

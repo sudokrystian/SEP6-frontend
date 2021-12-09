@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {sha256} from "js-sha256";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../services/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -18,7 +19,8 @@ export class SignUpComponent implements OnInit {
   registered = false;
 
   constructor(private api: AuthenticationService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -58,6 +60,7 @@ export class SignUpComponent implements OnInit {
       next: (res) => {
         if (res.status === 200) {
           this.registered = true;
+          this.router.navigateByUrl('/');
         }
       },
       error: (err) => console.log(err),
