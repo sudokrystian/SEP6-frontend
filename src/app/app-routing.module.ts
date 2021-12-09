@@ -5,7 +5,6 @@ import {LoginComponent} from "./components/login/login.component";
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {TrendingMoviesComponent} from "./components/trending-movies/trending-movies.component";
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
-import {NavbarComponent} from "./components/global-components/navbar/navbar.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
