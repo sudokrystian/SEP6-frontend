@@ -38,6 +38,8 @@ $text-color: white;
    backface-visibility: hidden;
  }}
 
+
+
 .trending-movie-info-wrapper {
   width: 300px;
   overflow: hidden;
@@ -76,6 +78,9 @@ $text-color: white;
 }
 
 .add-icon {
+  position: absolute;
+  top: 2%;
+  left: 2%;
   &:hover {
     color: #69f0ae;
   }

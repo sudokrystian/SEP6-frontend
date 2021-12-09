@@ -1,6 +1,7 @@
-import {Component, OnInit} from "@angular/core";
-import {SessionStorageService} from "../../../services/session-storage/session-storage.service";
-import {AuthenticationService} from "../../../services/authentication/authentication.service";
+import { Component, OnInit } from "@angular/core";
+import { SessionStorageService } from "../../../services/session-storage/session-storage.service";
+import { AuthenticationService } from "../../../services/authentication/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -8,21 +9,20 @@ import {AuthenticationService} from "../../../services/authentication/authentica
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  isUserLoggedIn: boolean = false;
+
   constructor(
     private sessionService: SessionStorageService,
-    private authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    private router: Router
 
   ) { }
 
   ngOnInit(): void {
-    this.isUserLoggedIn = (this.sessionService.getLoginStatus())
   }
 
-  logout()
-  {
-    console.log("logout")
-    this.authenticationService.logout();
+  logout() {
+    localStorage.setItem('token', '');
+    this.router.navigateByUrl('/');
   }
 
 }

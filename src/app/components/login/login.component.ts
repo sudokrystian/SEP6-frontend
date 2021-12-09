@@ -62,19 +62,4 @@ export class LoginComponent implements OnInit {
     this.loginFormGroup.reset()
     this.errorMessage = '';
   }
-
-  logout() {
-    this.api.logout().subscribe({
-      next: value => {
-        localStorage.setItem('username', '')
-        localStorage.setItem('loginStatus', 'false');
-        localStorage.setItem('token', '');
-        console.log("LOGOUT: NEXT")
-        console.log(value)},
-      error: err => {
-        console.log("LOGOUT: ERROR")
-        console.log(err);
-      }
-    });
-  }
 }
