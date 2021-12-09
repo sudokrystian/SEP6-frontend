@@ -10,7 +10,9 @@ export class SessionStorageService {
   constructor() { }
 
   initSession(){
-    this.sessionStorage = new SessionStorageModel('', false);
+    if (!this.sessionStorage){
+      this.sessionStorage = new SessionStorageModel('', false);
+    }
   }
 
   setUsername(username: string) {
@@ -47,5 +49,13 @@ export class SessionStorageService {
 
   getCookieHeader(): HttpHeaders {
     return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.getSessionToken()})
+  }
+
+  getLoginStatus(): boolean {
+    if (this.sessionStorage){
+      return this.sessionStorage.loggedIn
+    }else {
+      return false;
+    }
   }
 }
