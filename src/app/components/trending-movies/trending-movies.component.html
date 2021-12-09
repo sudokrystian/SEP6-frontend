@@ -16,6 +16,7 @@
         <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
         <p>{{ movie.release_date }}</p>
         <p class="trending-movie-description">{{ movie.overview }}</p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="add-icon" (click)="openAddToListDialog(movie.id, movie.title)">add</mat-icon>
       </div>
     </div>
   </div>

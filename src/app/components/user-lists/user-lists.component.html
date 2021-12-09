@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add {{movieTitle}} to your own list</h2>
+<mat-dialog-content class="mat-typography">
+<div class="user-lists-container">
+  <div *ngIf="movieLists; else emptyList" class="centered-column">
+    <p>Add {{movieTitle}} to</p>
+    <select #selectedList class="select-css">
+      <option *ngFor="let list of movieLists" value="{{ list.id }}">
+        {{ list.list_name }}
+      </option>
+    </select>
+    <button mat-button class="create-list-button" (click)="addMovieToList(selectedList.value)">Add</button>
+  </div>
+  <ng-template #emptyList>{{errorMessageDisplayLists}}</ng-template>
+  <hr class="spacer-add-list">
+  <span class="create-list-title">Name of the new list</span>
+  <input [(ngModel)]="newListName" class="new-list-input" type="text" placeholder="My new list!" />
+  <button mat-button class="create-list-button" (click)="createList(newListName)">Create list</button>
+  <span *ngIf="errorMessageCreateList" class="error-create-list">{{ errorMessageCreateList }}</span>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions class="user-list-dialog-action-buttons">
+  <button mat-button mat-dialog-close class="close-dialog-button">Close</button>
+</mat-dialog-actions>

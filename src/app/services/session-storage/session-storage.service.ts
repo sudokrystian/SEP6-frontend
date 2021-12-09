@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SessionStorageModel} from "./SessionStorageModel";
 import {HttpHeaders} from "@angular/common/http";
 
@@ -48,7 +48,11 @@ export class SessionStorageService {
   }
 
   getCookieHeader(): HttpHeaders {
-    return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + this.getSessionToken()})
+    if(localStorage.getItem('token')) {
+      return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')})
+    } else {
+      return new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')})
+    }
   }
 
   getLoginStatus(): boolean {

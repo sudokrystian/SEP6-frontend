@@ -1,3 +1,4 @@
+
 import {SearchComponent} from "./components/search/search.component";
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
@@ -5,7 +6,10 @@ import {LoginComponent} from "./components/login/login.component";
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {TrendingMoviesComponent} from "./components/trending-movies/trending-movies.component";
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
+
 import {HomeComponent} from "./components/home/home.component";
+import {MovieListComponent} from "./components/movie-list/movie-list.component";
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,6 +17,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   {path: 'home', component: HomeComponent},
   {path: 'trending', component: TrendingMoviesComponent},
+  {path: 'list', component: MovieListComponent},
   {path: 'trendingPeople', component: TrendingPeopleComponent}
 ];
 

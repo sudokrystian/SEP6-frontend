@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import {AngularMaterialModule} from "./angular-material.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {SearchComponent} from './components/search/search.component';
@@ -16,10 +16,11 @@ import { SearchPeopleComponent } from './components/search/search-people/search-
 import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
 import { NavbarComponent } from './components/global-components/navbar/navbar.component';
 import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
-
 import { NgxEchartsModule } from 'ngx-echarts';
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
 import { HomeComponent } from './components/home/home.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { UserListsComponent } from './components/user-lists/user-lists.component';
 
 
 @NgModule({
@@ -34,7 +35,9 @@ import { HomeComponent } from './components/home/home.component';
     TrendingMoviesComponent,
     NavbarComponent,
     TrendingPeopleComponent,
-    HomeComponent
+    HomeComponent,
+    MovieListComponent,
+    UserListsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     AngularMaterialModule,
     FormsModule,
+    MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({

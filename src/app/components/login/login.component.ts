@@ -38,9 +38,10 @@ export class LoginComponent implements OnInit {
     const password = sha256(this.loginFormGroup.get('password')?.value);
     this.api.login(username, password).subscribe({
         next: x => {
-          this.session.setUsername(username);
-          this.session.setLoginStatus(true);
-          this.session.setSessionCookie(x.access);
+
+          localStorage.setItem('username', username)
+          localStorage.setItem('loginStatus', 'true');
+          localStorage.setItem('token', x.access);
           console.log(`Submit login next: ${x}`);
           this.router.navigateByUrl('/');
         },
@@ -65,6 +66,9 @@ export class LoginComponent implements OnInit {
   logout() {
     this.api.logout().subscribe({
       next: value => {
+        localStorage.setItem('username', '')
+        localStorage.setItem('loginStatus', 'false');
+        localStorage.setItem('token', '');
         console.log("LOGOUT: NEXT")
         console.log(value)},
       error: err => {

@@ -9,9 +9,8 @@ import {SessionStorageService} from "./services/session-storage/session-storage.
 export class AppComponent implements OnInit{
   title = 'SEP6-frontend';
 
-  constructor(private sessionStorage: SessionStorageService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.sessionStorage.initSession();
   }
 }
