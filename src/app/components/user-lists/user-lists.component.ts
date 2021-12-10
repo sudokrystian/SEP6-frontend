@@ -33,7 +33,6 @@ export class UserListsComponent implements OnInit {
   constructor(private api: MovieListService, public dialogRef: MatDialogRef<UserListsComponent>, @Inject(MAT_DIALOG_DATA) public data: UserMovieListData) {
     this.movieId = data.movieId;
     this.movieTitle = data.movieTitle;
-    console.log("TITLE: " + this.movieTitle)
   }
 
   ngOnInit(): void {
@@ -79,27 +78,21 @@ export class UserListsComponent implements OnInit {
   }
 
   addMovieToList(listId: any) {
-    console.log("Button clicked")
-    if (this.movieId) {
-      console.log("inside IF")
-      this.api.addMovieToList(listId, this.movieId).subscribe({
-        next: value => {
-          this.closeDialog();
-          //TODO maybe add a snack bar to show info that the movie was added? https://material.angular.io/components/snack-bar/overview
-          console.log(value)
-        },
-        error: error => {
-          console.log("Error");
-          console.log(error);
-          if (error.status === 401) {
-            // redirect to login
-            console.log("please log in")
-          }
-        },
-      })
-    } else {
-      console.log("Can't add the movie to the list if movie id is not specified")
-    }
+    this.api.addMovieToList(listId, this.movieId).subscribe({
+      next: value => {
+        this.closeDialog();
+        //TODO maybe add a snack bar to show info that the movie was added? https://material.angular.io/components/snack-bar/overview
+        console.log(value)
+      },
+      error: error => {
+        console.log("Error");
+        console.log(error);
+        if (error.status === 401) {
+          // redirect to login
+          console.log("please log in")
+        }
+      },
+    })
   }
 
   closeDialog(): void {

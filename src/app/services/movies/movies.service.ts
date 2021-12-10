@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TrendingMovies} from 'src/app/models/trending-movies.model';
 import {UrlService} from "../url/url.service";
+import {SessionStorageService} from "../session-storage/session-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,9 @@ import {UrlService} from "../url/url.service";
 export class MoviesService {
 
 
-  constructor(private http: HttpClient, private url: UrlService) { }
+  constructor(private http: HttpClient, private url: UrlService, private session: SessionStorageService) { }
 
   getTrendingMovies(): Observable<TrendingMovies> {
-    return this.http.get<TrendingMovies>(this.url.getServerURL() + '/movies/trending')
+    return this.http.get<TrendingMovies>(this.url.getServerURL() + 'movies/trending')
   }
-
 }

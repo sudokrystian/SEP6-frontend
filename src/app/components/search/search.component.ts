@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SearchMovieComponent} from "./search-movie/search-movie.component";
 import {SearchPeopleComponent} from "./search-people/search-people.component";
+import { MatButtonModule } from '@angular/material/button'
 
 interface Option {
   value: string
@@ -20,6 +21,8 @@ export class SearchComponent implements OnInit {
   searchFormGroup: FormGroup;
   selectedOption = 'movie';
   isTrendingHidden: boolean = false
+
+  searchValue: string = '';
 
   options: Option[] = [
     {value: 'movie', viewValue: 'Movie'},
@@ -45,19 +48,18 @@ export class SearchComponent implements OnInit {
   }
 
   sendSearchToApi() {
-    let searchValue = this.searchFormGroup.get('search')?.value;
     let optionsValue = this.searchFormGroup.get('option')?.value
 
     console.log(optionsValue)
-    if (optionsValue === 'movie' && searchValue !== '') {
+    if (optionsValue === 'movie' && this.searchValue !== '') {
       this.childSearchPeople?.clearPeopleData()
       this.isTrendingHidden = true
-      this.childSearchMovie?.getMoviesDataFromAPI(searchValue)
-    } if (optionsValue === 'people' && searchValue !== '') {
+      this.childSearchMovie?.getMoviesDataFromAPI(this.searchValue)
+    } if (optionsValue === 'people' && this.searchValue !== '') {
       this.childSearchMovie?.clearMovieData()
       this.isTrendingHidden = true
-      this.childSearchPeople?.getPeopleDataFromAPI(searchValue)
-    } if (searchValue === '') {
+      this.childSearchPeople?.getPeopleDataFromAPI(this.searchValue)
+    } if (this.searchValue === '') {
       this.childSearchPeople?.clearPeopleData()
       this.childSearchMovie?.clearMovieData()
       this.isTrendingHidden = false

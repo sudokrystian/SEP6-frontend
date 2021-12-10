@@ -1,18 +1,26 @@
 $primary-color: #303030;
 
-.mat-card-outer {
-  width: 50%;
-  height: 55px;
-  margin: 1% 25%;
-  background-color: $primary-color;
+.search-form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-form {
   text-align: center;
+  
+  .mat-form-field-infix {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .search-form-full {
   width: 50%;
+  input {
+    color: white;
+  }
 }
 
 .search-form-options {
@@ -26,4 +34,20 @@ $primary-color: #303030;
 
 .trending-movie-week, .trending-people-week {
   margin-bottom: 3%;
+}
+
+.search-reset-button {
+  height: 10px;
+  position: absolute;
+  right: 1%;
+  top: -18%;
+  color: #C5C6C7;
+  &:hover {
+    color: red;
+  }
+}
+
+.row-search {
+  display: flex;
+  flex-direction: row;
 }

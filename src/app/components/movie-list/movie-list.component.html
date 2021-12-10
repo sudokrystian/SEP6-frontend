@@ -1,6 +1,9 @@
 <div *ngIf="movieList; else emptyList" class="movie-list-container">
   <div *ngFor="let list of movieList">
-    <h2 class="my-list-title">List: {{ list.list_name }}</h2>
+    <div class="row">
+      <h2 class="my-list-title">List: {{ list.list_name }}</h2>
+      <button mat-button (click)="deleteMovieList(list.list_id)" class="remove-movie-button">Remove {{list.list_name}}</button>
+    </div>
     <hr class="spacer-list">
     <div *ngIf="list.movies.length !== 0; else noMovies">
       <div *ngFor="let movie of list.movies" class="movie-list-div">
@@ -13,6 +16,7 @@
           <h2 class="">{{ movie.original_title }}</h2>
           <p>{{ movie.release_date }}</p>
           <p class="">{{ movie.overview }}</p>
+          <button mat-button (click)="deleteMovieFromList(list.list_id, movie.id)" class="remove-movie-button">Remove {{ movie.original_title }} from {{list.list_name}}</button>
         </div>
       </div>
     </div>

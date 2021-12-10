@@ -1,29 +1,43 @@
 .movie-list-container {
-    margin-top: 50px;
-    color: white;
+  margin-top: 50px;
+  color: white;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
 }
 
 .my-list-title {
-    padding: 0px 10px;
-    margin: 0;
+  padding: 0px 10px;
+  margin: 0;
 }
 
 .spacer-list {
-    width: 95%;
-    border-top: 1px solid grey;
-    margin: 5px 0 15px 0;
+  width: 95%;
+  border-top: 1px solid grey;
+  margin: 5px 0 15px 0;
 }
 
 .movie-list-div {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 
 .movie-details {
-    padding-left: 15px;
+  padding-left: 15px;
 }
 
 .empty-list {
-    margin-left: 15px;
+  margin-left: 15px;
+}
+
+.remove-movie-button {
+    width: fit-content;
+    height: 40px;
+  background-color: #f44336;
+  color: #fff;
 }
