@@ -29,6 +29,14 @@ export class MovieListService {
     return this.http.put(this.url.getServerURL() + 'list/movies', {list_id: listId, movie_id: movieId}, {headers: this.session.getCookieHeader()})
   }
 
+  deleteFromList(listId: number, movieId: number) {
+    return this.http.delete(this.url.getServerURL() + 'list/' + listId + '/movies/' + movieId, {headers: this.session.getCookieHeader()})
+  }
+
+  deleteMovieList(listId:number) {
+    return this.http.delete(this.url.getServerURL() + 'list/' + listId, {headers: this.session.getCookieHeader()})
+  }
+
 
 
 
