@@ -1,0 +1,6 @@
+<div *ngIf="personData else noData" class="person-details-container">
+    <h4>{{personData.name}}</h4>
+</div>
+<ng-template #noData>
+    <p class="person-not-found">No information about the person found</p>
+</ng-template>

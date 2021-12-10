@@ -9,6 +9,7 @@
       <div
         *ngFor="let person of trendingPeople.results"
         class="keen-slider__slide trending-people-cell"
+        [routerLink]="['/people', person.id]"
       >
         <div class="trending-people-img-wrapper">
           <img
