@@ -8,8 +8,11 @@
       <div
         *ngFor="let movie of trendingMovies.results"
         class="keen-slider__slide trending-movie-cell"
-      >
+      ><a
+        [routerLink]="'/details'"
+        [queryParams]="{id: movie.id}">
         <div class="trending-movie-img-wrapper">
+
           <img
             *ngIf="posterSize"
             class="trending-movie-carousel-movie-poster"
@@ -18,19 +21,26 @@
             }}"
             alt="poster"
           />
+
         </div>
+      </a>
         <mat-icon
           aria-hidden="false"
           aria-label="Example home icon"
           class="add-icon"
           (click)="openAddToListDialog(movie.id, movie.title)"
-          >add</mat-icon
+        >add
+        </mat-icon
         >
-        <div class="trending-movie-info-wrapper">
-          <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
-          <p>{{ movie.release_date }}</p>
-          <p class="trending-movie-description">{{ movie.overview }}</p>
-        </div>
+        <a
+          [routerLink]="'/details'"
+          [queryParams]="{id: movie.id}">
+          <div class="trending-movie-info-wrapper">
+            <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
+            <p>{{ movie.release_date }}</p>
+            <p class="trending-movie-description">{{ movie.overview }}</p>
+          </div>
+        </a>
       </div>
     </div>
     <button mat-button class="button-carousel" (click)="slider.prev()">

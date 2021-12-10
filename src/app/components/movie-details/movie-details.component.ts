@@ -8,7 +8,7 @@ import {CastMember} from "../../models/cast-member.model";
 import {PeopleDetail} from "../../models/movie-details/people-detail";
 import {TrendingMovies} from "../../models/trending-movies.model";
 import {MovieRatings} from "../../models/movie-ratings";
-import {ActivatedRoute, Route} from "@angular/router";
+import {ActivatedRoute, ParamMap, Route} from "@angular/router";
 
 @Component({
   selector: 'app-movie-details',
@@ -31,15 +31,18 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private service: MovieDetailService, private route: ActivatedRoute) {
   }
 
-//617653
-  @Input()
+
   id: number = 200;
 
 
   ngOnInit(): void {
     this.route.queryParamMap
-      .subscribe((params) => {
-        }
+      .subscribe((params: ParamMap) => {
+      const id = params.get('id');
+          if (typeof id === "string") {
+            this.id = parseInt(id)
+          }
+      }
       );
     this.getMovieDetails(this.id);
     this.getCast(this.id);

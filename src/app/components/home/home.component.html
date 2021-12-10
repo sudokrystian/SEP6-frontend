@@ -1,5 +1,10 @@
 <app-search></app-search>
-<img src="../../../../assets/banner.png" alt="Banner" class="homepage-banner">
+<a
+  [routerLink]="'/details'"
+  [queryParams]="{id: 634649}"
+>
+  <img src="../../../../assets/banner.png" alt="Banner" class="homepage-banner">
+</a>
 <app-trending-movies></app-trending-movies>
 <app-trending-people></app-trending-people>
 
