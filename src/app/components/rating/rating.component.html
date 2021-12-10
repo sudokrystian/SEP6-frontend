@@ -7,11 +7,13 @@
       </div>
     </div>
 
+    <div *ngIf="isRatingSelectedPrevious">
+      <div *ngFor="let star of stars" [ngClass]="[star.class]" (click)="alterSelectedStar(star.id)">
+        <mat-icon>{{star.icon}}</mat-icon>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div *ngIf="isRatingSelectedPrevious">
-  <div *ngFor="let star of stars" [ngClass]="[star.class]">
-    <mat-icon>{{star.icon}}</mat-icon>
-  </div>
-</div>
+

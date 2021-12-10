@@ -14,9 +14,12 @@ export class RatingComponent implements OnInit {
 
   @Input() movieId: number | undefined
 
+  testMovieId: number = 617653
+
   _RatingByUser: MovieRatings | undefined
 
   isRatingSelectedPrevious = true;
+  ratingId = 0
 
   selectedRating = 0;
   stars = [
@@ -51,7 +54,7 @@ export class RatingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRatingFromUser(550)
+    this.getRatingFromUser(this.testMovieId)
   }
 
   getRatingFromUser(movie_id: number) {
@@ -75,9 +78,19 @@ export class RatingComponent implements OnInit {
     })
   }
 
+  alterRatingByUser(rating_id: number, rating: number) {
+    this.api.alterRatingFromUser(rating_id, rating).subscribe({
+      next: (res) => {
+        console.log(res)
+      },
+      error: (err) => console.log(err)
+    })
+  }
+
   private setPreviousRating() {
     if (this._RatingByUser) {
       this.selectedRating = this._RatingByUser.rating
+      this.ratingId = this._RatingByUser.id
       console.log('selectedRating is set: ' + this.selectedRating)
     }
   }
@@ -91,6 +104,24 @@ export class RatingComponent implements OnInit {
       }
       return star
     })
+  }
+
+  alterSelectedStar(value: number): void {
+    // prevent multiple selection
+    if (this.selectedRating === 0) {
+      this.stars.filter((star) => {
+        if (star.id <= value) {
+          star.class = 'star-gold star';
+        } else {
+          star.class = 'star-gray star';
+        }
+        return star;
+      });
+    }
+    this.selectedRating = value;
+
+    this.alterRatingByUser(this.ratingId, this.selectedRating)
+    this.showUserRating()
   }
 
   selectStar(value: number): void {
@@ -107,7 +138,7 @@ export class RatingComponent implements OnInit {
     }
     this.selectedRating = value;
 
-    this.api.sendRatingFromUser(550, this.selectedRating).subscribe({
+    this.api.sendRatingFromUser(this.testMovieId, this.selectedRating).subscribe({
       next: (res) => {
         console.log(res)
       },
