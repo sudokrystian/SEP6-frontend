@@ -21,6 +21,7 @@ import {TrendingPeopleComponent} from "./components/trending-people/trending-peo
 import { HomeComponent } from './components/home/home.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { UserListsComponent } from './components/user-lists/user-lists.component';
+import {RatingComponent} from "./components/rating/rating.component";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { UserListsComponent } from './components/user-lists/user-lists.component
     TrendingPeopleComponent,
     HomeComponent,
     MovieListComponent,
-    UserListsComponent
+    UserListsComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

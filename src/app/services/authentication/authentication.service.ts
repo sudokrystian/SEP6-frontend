@@ -9,7 +9,7 @@ import {SessionStorageService} from "../session-storage/session-storage.service"
 })
 export class AuthenticationService {
   private httpOptions = {headers: this.session.getCookieHeader()};
-  
+
   userLoogedIn: boolean = false;
 
   constructor(private http: HttpClient, private url: UrlService, private session: SessionStorageService) {
@@ -19,7 +19,7 @@ export class AuthenticationService {
     return this.http.post(this.url.getServerURL() + 'login', {
       username,
       password
-    }, this.httpOptions)
+    })
   }
 
   register(username: string, email: string, password: string): Observable<any> {
