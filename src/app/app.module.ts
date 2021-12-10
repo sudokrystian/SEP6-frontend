@@ -22,7 +22,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { UserListsComponent } from './components/user-lists/user-lists.component';
 import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
-import {FooterComponent} from "./components/footer/footer.component";
+import {FooterComponent} from "./components/global-components/footer/footer.component";
 
 
 @NgModule({
