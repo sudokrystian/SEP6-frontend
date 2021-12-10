@@ -1,0 +1,20 @@
+<div *ngIf="similarMovies" class="crew-carousel">
+  <button mat-button class="button-carousel" (click)="similarMovieSlider.next()">
+    <h1 class="shift-icon">&#10094;</h1>
+  </button>
+  <div class="keen-slider movie-crew-carousel" #sliderRef>
+    <div class="keen-slider__slide movie-crew-cell" *ngFor="let movie of similarMovies.results">
+      <div class="movie-crew-img-wrapper">
+        <img class="movie-crew-carousel-movie-poster"
+             src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="poster"/>
+      </div>
+      <div class="movie-crew-info-wrapper">
+        <h2 class="movie-crew-name">{{ movie.title }}</h2>
+        <p class="movie-crew-description">{{ movie.overview }}</p>
+      </div>
+    </div>
+  </div>
+  <button mat-button class="button-carousel" (click)="similarMovieSlider.prev()">
+    <h1 class="shift-icon">&#10095;</h1>
+  </button>
+</div>

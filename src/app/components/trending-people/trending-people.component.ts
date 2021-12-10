@@ -1,9 +1,7 @@
 import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
-import {People} from "src/app/models/people";
 import {PeopleService} from "../../services/people/people.service";
 import 'keen-slider/keen-slider.min.css'
 import KeenSlider from 'keen-slider'
-import {MoviesService} from "../../services/movies/movies.service";
 import {SearchPeople} from "../../models/search-people";
 
 @Component({
