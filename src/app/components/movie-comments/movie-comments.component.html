@@ -1,0 +1,18 @@
+<div *ngIf="this.authenticationService.isLoggedIn()" class="new-comment-block">
+    <input type="text" [(ngModel)]="newComment" name="new-comment-input" placeholder="Insert a new comment..." class="new-comment">
+    <div class="new-comment-actions">
+        <span class="new-comment-error" *ngIf="newCommentError">{{newCommentError}}</span>
+        <button mat-button class="add-comment-button" (click)="addNewComment()">Add comment</button>
+    </div>
+</div>
+
+<div *ngIf="movieComments" class="movie-comments-container">
+  <div *ngFor="let comment of movieComments" class="movie-comment">
+    <div class="comment-info">
+      <h4>{{ comment.user }}</h4>
+      <hr />
+      <p>{{ comment.date }}</p>
+    </div>
+    <p class="comment-text">{{ comment.comment }}</p>
+  </div>
+</div>

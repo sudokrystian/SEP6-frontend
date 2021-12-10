@@ -27,7 +27,6 @@ export class MovieListComponent implements OnInit {
         console.log(value)
       },
       error: error => {
-        console.log("Error");
         console.log(error);
         if(error.status == 401) {
           this.movieListsErrorMessage = "Log in to see your movie lists"
@@ -43,7 +42,6 @@ export class MovieListComponent implements OnInit {
         this.getUserLists()
       },
       error: error => {
-        console.log("Error");
         console.log(error);
         if(error.status == 401) {
           this.router.navigateByUrl('/login');
@@ -58,7 +56,6 @@ export class MovieListComponent implements OnInit {
         this.getUserLists()
       },
       error: error => {
-        console.log("Error");
         console.log(error);
         if(error.status == 401) {
           this.router.navigateByUrl('/login');
