@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RatingService} from "../../services/rating/rating.service";
 import {MovieRatings} from "../../models/movie-rating.model";
-import {log} from "echarts/types/src/util/log";
 
 
 @Component({
@@ -13,8 +11,6 @@ import {log} from "echarts/types/src/util/log";
 export class RatingComponent implements OnInit {
 
   @Input() movieId: number | undefined
-
-  testMovieId: number = 617653
 
   _RatingByUser: MovieRatings | undefined
 
@@ -54,7 +50,9 @@ export class RatingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getRatingFromUser(this.testMovieId)
+    if (this.movieId) {
+      this.getRatingFromUser(this.movieId)
+    }
   }
 
   getRatingFromUser(movie_id: number) {
@@ -64,25 +62,20 @@ export class RatingComponent implements OnInit {
           this.isRatingSelectedPrevious = true
           this._RatingByUser = value[0]
           this.setPreviousRating()
-          console.log(value)
         }
       },
       error: err => {
         this.isRatingSelectedPrevious = false
-        console.log(err.error)
+        console.log(err)
       },
       complete: () => {
         this.showUserRating()
-        console.log('Have been completed')
       }
     })
   }
 
   alterRatingByUser(rating_id: number, rating: number) {
     this.api.alterRatingFromUser(rating_id, rating).subscribe({
-      next: (res) => {
-        console.log(res)
-      },
       error: (err) => console.log(err)
     })
   }
@@ -91,7 +84,6 @@ export class RatingComponent implements OnInit {
     if (this._RatingByUser) {
       this.selectedRating = this._RatingByUser.rating
       this.ratingId = this._RatingByUser.id
-      console.log('selectedRating is set: ' + this.selectedRating)
     }
   }
 
@@ -107,7 +99,6 @@ export class RatingComponent implements OnInit {
   }
 
   alterSelectedStar(value: number): void {
-    // prevent multiple selection
     if (this.selectedRating === 0) {
       this.stars.filter((star) => {
         if (star.id <= value) {
@@ -125,7 +116,6 @@ export class RatingComponent implements OnInit {
   }
 
   selectStar(value: number): void {
-     // prevent multiple selection
     if (this.selectedRating === 0) {
       this.stars.filter((star) => {
         if (star.id <= value) {
@@ -138,10 +128,8 @@ export class RatingComponent implements OnInit {
     }
     this.selectedRating = value;
 
-    this.api.sendRatingFromUser(this.testMovieId, this.selectedRating).subscribe({
-      next: (res) => {
-        console.log(res)
-      },
+    if (this.movieId)
+    this.api.sendRatingFromUser(this.movieId, this.selectedRating).subscribe({
       error: (err) => console.log(err)
     })
   }
