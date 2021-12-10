@@ -22,6 +22,7 @@ export class MovieCommentsComponent implements OnInit {
   constructor(private api: MovieService, public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    console.log('starting commments')
     this.getCommentsForTheMovie()
   }
 
@@ -44,7 +45,7 @@ export class MovieCommentsComponent implements OnInit {
       this.newCommentError = undefined
       this.api.addCommentForTheMovie(this.movieId!, this.newComment).subscribe({
         next: value => {
-          
+
         },
         error: error => {
           console.log(error);

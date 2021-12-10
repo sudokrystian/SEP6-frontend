@@ -3,9 +3,9 @@
     <h1 class="shift-icon">&#10094;</h1>
   </button>
   <div class="keen-slider movie-crew-carousel" #sliderRef>
-    <div class="keen-slider__slide movie-crew-cell" *ngFor="let movie of similarMovies.results">
+    <div [routerLink]="['/movie', movie.id]" class="keen-slider__slide movie-crew-cell" *ngFor="let movie of similarMovies.results">
       <div class="movie-crew-img-wrapper">
-        <img class="movie-crew-carousel-movie-poster"
+        <img  class="movie-crew-carousel-movie-poster"
              src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" alt="poster"/>
       </div>
       <div class="movie-crew-info-wrapper">

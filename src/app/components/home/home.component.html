@@ -1,10 +1,7 @@
 <app-search></app-search>
-<a
-  [routerLink]="'/details'"
-  [queryParams]="{id: 634649}"
->
-  <img src="../../../../assets/banner.png" alt="Banner" class="homepage-banner">
-</a>
+
+  <img [routerLink]="['/movie', 634649]" src="../../../../assets/banner.png" alt="Banner" class="homepage-banner">
+
 <app-trending-movies></app-trending-movies>
 <app-trending-people></app-trending-people>
 

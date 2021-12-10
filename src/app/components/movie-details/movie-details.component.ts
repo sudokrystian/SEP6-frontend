@@ -31,19 +31,14 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private service: MovieDetailService, private route: ActivatedRoute) {
   }
 
-
   id: number = 200;
 
-
   ngOnInit(): void {
-    this.route.queryParamMap
-      .subscribe((params: ParamMap) => {
-      const id = params.get('id');
-          if (typeof id === "string") {
-            this.id = parseInt(id)
-          }
-      }
-      );
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id)
+    if(id) {
+      this.id = parseInt(id);
+    }
     this.getMovieDetails(this.id);
     this.getCast(this.id);
     this.getRating(this.id);
@@ -119,5 +114,4 @@ export class MovieDetailsComponent implements OnInit {
       }
     });
   }
-
 }

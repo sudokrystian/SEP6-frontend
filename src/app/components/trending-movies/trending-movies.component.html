@@ -8,11 +8,8 @@
       <div
         *ngFor="let movie of trendingMovies.results"
         class="keen-slider__slide trending-movie-cell"
-      ><a
-        [routerLink]="'/details'"
-        [queryParams]="{id: movie.id}">
+      ><a [routerLink]="['/movie', movie.id]">
         <div class="trending-movie-img-wrapper">
-
           <img
             *ngIf="posterSize"
             class="trending-movie-carousel-movie-poster"
@@ -32,9 +29,7 @@
         >add
         </mat-icon
         >
-        <a
-          [routerLink]="'/details'"
-          [queryParams]="{id: movie.id}">
+        <a [routerLink]="['/movie', movie.id]">
           <div class="trending-movie-info-wrapper">
             <h2 class="trending-movie-title">{{ movie.original_title }}</h2>
             <p>{{ movie.release_date }}</p>

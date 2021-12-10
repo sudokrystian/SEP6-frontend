@@ -20,8 +20,10 @@ const routes: Routes = [
   {path: 'myList', component: MovieListComponent},
   {path: 'trendingPeople', component: TrendingPeopleComponent},
   {path: 'trending', component: TrendingMoviesComponent},
-  {path: 'details', component: MovieDetailsComponent},
-  {path: 'people/:id', component: PersonDetailsComponent}
+  {path: 'people/:id', component: PersonDetailsComponent},
+  {path: 'movie/:id', component: MovieDetailsComponent},
+]
+
 
 
 @NgModule({

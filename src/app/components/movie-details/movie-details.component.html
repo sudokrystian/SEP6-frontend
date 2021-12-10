@@ -46,4 +46,7 @@
   <app-similar-movie-carousel [similarMovies]="similarMovies"></app-similar-movie-carousel>
   <hr>
 </div>
+<div *ngIf="movieToDisplay">
+  <app-movie-comments  [movieId]="movieToDisplay.id"></app-movie-comments>
+</div>
 
