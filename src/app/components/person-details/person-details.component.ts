@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { People } from 'src/app/models/people';
+import { Credits } from 'src/app/models/credits.model';
+import { PersonDetails } from 'src/app/models/person-details.model';
 import { PeopleService } from 'src/app/services/people/people.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { PeopleService } from 'src/app/services/people/people.service';
 })
 export class PersonDetailsComponent implements OnInit {
 
-  personData: People | undefined;
+  personData: PersonDetails | undefined;
+  personCredits: Credits | undefined;
 
   constructor(private api: PeopleService, private route: ActivatedRoute) { }
 
@@ -18,6 +20,7 @@ export class PersonDetailsComponent implements OnInit {
     const id =this.route.snapshot.paramMap.get("id");
     if(id) {
       this.getPersonDetails(parseInt(id))
+      this.getPersonCredits(parseInt(id))
     }
   }
 
@@ -29,7 +32,20 @@ export class PersonDetailsComponent implements OnInit {
       },
       error: (e) => console.error("Error: " + e),
       complete: () => {
-        // Request finished here you cna optionally add updates, etc.
+        // Request finished here you can optionally add updates, etc.
+      }
+    })
+  }
+
+  getPersonCredits(personId: number) {
+    this.api.getPersonCredits(personId).subscribe({
+      next: (data) => {
+        console.log(data)
+        this.personCredits = data;
+      },
+      error: (e) => console.error("Error: " + e),
+      complete: () => {
+        // Request finished here you can optionally add updates, etc.
       }
     })
   }

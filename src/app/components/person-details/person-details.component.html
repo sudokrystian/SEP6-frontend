@@ -1,6 +1,28 @@
-<div *ngIf="personData else noData" class="person-details-container">
-    <h4>{{personData.name}}</h4>
+<div *ngIf="personData; else noData">
+  <div class="person-details-container">
+    <img
+      class="person-details-poster"
+      src="https://image.tmdb.org/t/p/original/{{ personData.profile_path }}"
+    />
+    <div class="person-details-info">
+      <div class="person-name-wrapper">
+        <h1>{{ personData.name }}</h1>
+      </div>
+      <div class="main-details-wrapper">
+        <h2>{{ personData.known_for_department }}</h2>
+        <h2>
+          Born {{ personData.birthday }} in {{ personData.place_of_birth }}
+        </h2>
+      </div>
+      <div>
+        <p>{{ personData.biography }}</p>
+      </div>
+      <br />
+      <h5>Industry popularity {{ personData.popularity }}</h5>
+    </div>
+  </div>
 </div>
+
 <ng-template #noData>
-    <p class="person-not-found">No information about the person found</p>
+  <p class="person-not-found">No information about the person found</p>
 </ng-template>
