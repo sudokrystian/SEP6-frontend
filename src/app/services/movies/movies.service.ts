@@ -13,7 +13,7 @@ export class MoviesService {
   constructor(private http: HttpClient, private url: UrlService) { }
 
   getTrendingMovies(): Observable<TrendingMovies> {
-    return this.http.get<TrendingMovies>(this.url.getServerURL() + '/movies/trending')
+    return this.http.get<TrendingMovies>(this.url.getServerURL() + 'movies/trending')
   }
 
 }
