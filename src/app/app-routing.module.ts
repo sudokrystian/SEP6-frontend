@@ -7,6 +7,7 @@ import {TrendingPeopleComponent} from "./components/trending-people/trending-peo
 
 import {HomeComponent} from "./components/home/home.component";
 import {MovieListComponent} from "./components/movie-list/movie-list.component";
+import { PersonDetailsComponent } from './components/person-details/person-details.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'trending', component: TrendingMoviesComponent},
   {path: 'myList', component: MovieListComponent},
-  {path: 'trendingPeople', component: TrendingPeopleComponent}
+  {path: 'trendingPeople', component: TrendingPeopleComponent},
+  {path: 'people/:id', component: PersonDetailsComponent}
 ];
 
 @NgModule({

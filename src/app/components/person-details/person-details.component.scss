@@ -1,0 +1,54 @@
+.person-not-found {
+  color: #fff;
+}
+
+.person-details-container {
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+//   align-content: flex-start;
+
+  .person-details-poster {
+    width: 40%;
+    object-fit: contain;
+    border-radius: 1%;
+    align-self: baseline;
+  }
+
+  .person-details-info {
+    width: 40%;
+    margin-left: 3%;
+    color: white;
+    border-bottom: 1px solid orange;
+    display: flex;
+    flex-direction: column;
+
+    .person-name-wrapper {
+      border-bottom: 1px solid orange;
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    .main-details-wrapper {
+
+        h2 {
+            padding-top: 5px;
+            margin-bottom: 0px;
+        }
+        padding-bottom: 10px;
+    }
+
+
+  }
+
+  .person-details-info-overview {
+
+  }
+}
