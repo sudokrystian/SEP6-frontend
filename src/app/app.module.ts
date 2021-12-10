@@ -17,13 +17,17 @@ import {NavbarComponent} from './components/global-components/navbar/navbar.comp
 import {MovieStatisticsComponent} from './components/movie-statistics/movie-statistics.component';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
-import {HomeComponent} from './components/home/home.component';
-import {MovieListComponent} from './components/movie-list/movie-list.component';
-import {UserListsComponent} from './components/user-lists/user-lists.component';
 import {SimilarMovieCarouselComponent} from "./components/movie-details/similar-movie-carousel/similar-movie-carousel.component";
 import {CastCarouselComponent} from "./components/movie-details/cast-carousel/cast-carousel.component";
 import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
 import {SearchPeopleComponent} from "./components/search/search-people/search-people.component";
+import { HomeComponent } from './components/home/home.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { UserListsComponent } from './components/user-lists/user-lists.component';
+import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
+import {FooterComponent} from "./components/global-components/footer/footer.component";
+import { PersonDetailsComponent } from './components/person-details/person-details.component';
+
 
 
 @NgModule({
@@ -43,7 +47,10 @@ import {SearchPeopleComponent} from "./components/search/search-people/search-pe
     SimilarMovieCarouselComponent,
     TrendingPeopleComponent,
     MovieListComponent,
-    UserListsComponent
+    UserListsComponent,
+    MovieCommentsComponent,
+    FooterComponent,
+    PersonDetailsComponent,
   ],
   imports: [
     BrowserModule,

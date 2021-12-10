@@ -1,7 +1,7 @@
 <div *ngIf="_newPeopleData">
   <div class="people-search-list">
     <div *ngFor="let data of _newPeopleData.results" class="people-list">
-      <div class="people-poster-size">
+      <div class="people-poster-size" [routerLink]="['/people', data.id]">
         <div *ngIf="data.profile_path !== null; else defaultPeopleText" (click)="peoplePictureClicked(data.id)">
         <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.profile_path}}"
              alt="poster"

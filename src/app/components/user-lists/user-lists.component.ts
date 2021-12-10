@@ -33,7 +33,6 @@ export class UserListsComponent implements OnInit {
   constructor(private api: MovieListService, public dialogRef: MatDialogRef<UserListsComponent>, @Inject(MAT_DIALOG_DATA) public data: UserMovieListData) {
     this.movieId = data.movieId;
     this.movieTitle = data.movieTitle;
-    console.log("TITLE: " + this.movieTitle)
   }
 
   ngOnInit(): void {
