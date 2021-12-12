@@ -50,7 +50,6 @@ export class SearchComponent implements OnInit {
   sendSearchToApi() {
     let optionsValue = this.searchFormGroup.get('option')?.value
 
-    console.log(optionsValue)
     if (optionsValue === 'movie' && this.searchValue !== '') {
       this.childSearchPeople?.clearPeopleData()
       this.isTrendingHidden = true
