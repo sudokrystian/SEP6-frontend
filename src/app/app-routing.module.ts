@@ -4,10 +4,11 @@ import {LoginComponent} from "./components/login/login.component";
 import {SignUpComponent} from "./components/sign-up/sign-up.component";
 import {TrendingMoviesComponent} from "./components/trending-movies/trending-movies.component";
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
-
 import {HomeComponent} from "./components/home/home.component";
 import {MovieListComponent} from "./components/movie-list/movie-list.component";
+import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
 import { PersonDetailsComponent } from './components/person-details/person-details.component';
+
 
 
 const routes: Routes = [
@@ -18,8 +19,12 @@ const routes: Routes = [
   {path: 'trending', component: TrendingMoviesComponent},
   {path: 'myList', component: MovieListComponent},
   {path: 'trendingPeople', component: TrendingPeopleComponent},
-  {path: 'people/:id', component: PersonDetailsComponent}
-];
+  {path: 'trending', component: TrendingMoviesComponent},
+  {path: 'people/:id', component: PersonDetailsComponent},
+  {path: 'movie/:id', component: MovieDetailsComponent},
+]
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -8,11 +8,15 @@
     <hr class="spacer-list">
     <div *ngIf="list.movies.length !== 0; else noMovies">
       <div *ngFor="let movie of list.movies" class="movie-list-div">
+        <a
+        [routerLink]="'/details'"
+        [queryParams]="{id: movie.id}">
         <img
           class=""
           src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}"
           alt="Poster couldn't be loaded"
         />
+        </a>
         <div class="movie-details">
           <h2 class="">{{ movie.original_title }}</h2>
           <p>{{ movie.release_date }}</p>

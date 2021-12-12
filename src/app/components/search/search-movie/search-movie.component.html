@@ -6,6 +6,7 @@
           *ngIf="data.poster_path !== null; else defaultMovieText"
           (click)="moviePosterClicked(data.id)"
         >
+        <a [routerLink]="['/movie', data.id]"></a>
           <img
             mat-card-image
             *ngIf="posterSize"
@@ -13,7 +14,7 @@
               data.poster_path
             }}"
             alt="poster"
-          />
+          /></a>
           <mat-icon
             aria-hidden="false"
             aria-label="Add to list icon"
