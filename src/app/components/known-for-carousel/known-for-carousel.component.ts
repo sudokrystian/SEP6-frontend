@@ -25,35 +25,32 @@ export class KnownForCarouselComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log("View init!")
-    this.sliderRef?.changes.subscribe((components: QueryList<ElementRef<HTMLElement>>) => {
-      console.log("Change!")
-      this.knownForMovieSlider = new KeenSlider<{}>(components.first.nativeElement, {
+    if(this.sliderRef?.length != 0) {
+      this.knownForMovieSlider = new KeenSlider<{}>(this.sliderRef!.first.nativeElement, {
         loop: true,
         rtl: true,
         drag: false,
         slides: {
-          perView: 2,
-          // spacing: 5,
+          perView: 7,
+          spacing: 5,
         },
       })
-      console.log("Sldier loaded")
-    });
-  }
+    } else {
+      this.sliderRef?.changes.subscribe((components: QueryList<ElementRef<HTMLElement>>) => {
+        console.log("Change!")
+        this.knownForMovieSlider = new KeenSlider<{}>(components.first.nativeElement, {
+          loop: true,
+          rtl: true,
+          drag: false,
+          slides: {
+            perView: 7,
+            spacing: 5,
+          },
+        })
+        console.log("Sldier loaded")
+      });
+    }
 
-  loadSlider() {
-    this.sliderRef?.changes.subscribe((components: QueryList<ElementRef<HTMLElement>>) => {
-      this.knownForMovieSlider = new KeenSlider<{}>(components.first.nativeElement, {
-        loop: true,
-        rtl: true,
-        drag: false,
-        slides: {
-          perView: 2,
-          // spacing: 5,
-        },
-      })
-      console.log("Sldier loaded")
-    });
   }
 
   openAddToListDialog(movieId: number, movieTitle: string) {
