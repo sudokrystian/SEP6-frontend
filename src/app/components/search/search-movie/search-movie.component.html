@@ -6,7 +6,7 @@
           *ngIf="data.poster_path !== null; else defaultMovieText"
           (click)="moviePosterClicked(data.id)"
         >
-        <a [routerLink]="['/movie', data.id]"></a>
+        <a [routerLink]="['/movie', data.id]">
           <img
             mat-card-image
             *ngIf="posterSize"
