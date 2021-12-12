@@ -1,0 +1,109 @@
+$keen-slider-height: 300px;
+$carousel-width: 90%;
+$primary-color: white;
+$carousel-item-hover-color: rgb(109, 109, 109);
+$text-color: white;
+.shift-icon {
+  color: $text-color;
+}
+
+.carousel-container {
+  margin-top: 50px;
+  background-color: #fff;
+  height: 400px;
+}
+
+.known-for-title {
+  padding-top: 5px;
+  padding-left: 10px;
+  color: #000;
+}
+
+.crew-carousel {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-height: 300px;
+  background-color: $primary-color;
+}
+
+.movie-crew-carousel {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: $carousel-width;
+  height: $keen-slider-height;
+}
+
+.movie-crew-cell {
+  position: relative;
+  width: 300px;
+}
+
+.movie-crew-img-wrapper {
+  width: 100%;
+  align-items: center;
+  .movie-crew-poster {
+    opacity: 1;
+    transition: 0.5s ease;
+    backface-visibility: visible;
+  }
+}
+
+.movie-crew-info-wrapper {
+  width: 200px;
+  overflow: hidden;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  color: black;
+  top: 45%;
+
+  .movie-crew-name {
+  }
+
+  .movie-crew-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.add-icon {
+  position: absolute;
+  opacity: 0.3;
+  top: 2%;
+  left: 2%;
+  background-color: white;
+  border-radius: 40%;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+    color: #45a29e;
+  }
+}
+
+.movie-crew-carousel-movie-poster {
+  border-radius: 2%;
+}
+.movie-crew-cell:hover .movie-crew-carousel-movie-poster {
+  opacity: 0.1;
+}
+
+.movie-crew-cell:hover .movie-crew-info-wrapper {
+  opacity: 1;
+}
+
+.button-carousel {
+  z-index: 2;
+  opacity: 0.7;
+  background-color: #303030;
+  width: 5%;
+  height: $keen-slider-height;
+
+  &:hover {
+    background-color: rgba(8, 8, 8, 0.753);
+  }
+}
