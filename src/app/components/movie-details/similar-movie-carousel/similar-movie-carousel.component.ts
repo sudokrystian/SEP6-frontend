@@ -1,5 +1,7 @@
 import {Component, ElementRef, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
 import KeenSlider from "keen-slider";
+import { ListDialogService } from 'src/app/services/list-dialog/list-dialog.service';
+import { RedirectService } from 'src/app/services/redirect/redirect.service';
 import {TrendingMovies} from "../../../models/trending-movies.model";
 
 @Component({
@@ -12,7 +14,8 @@ export class SimilarMovieCarouselComponent implements OnInit {
   similarMovieSlider: any = null;
   @Input()
   similarMovies: TrendingMovies | undefined;
-  constructor() { }
+
+  constructor(public dialog: ListDialogService ,public redirect:RedirectService) { }
 
   ngOnInit(): void {
   }

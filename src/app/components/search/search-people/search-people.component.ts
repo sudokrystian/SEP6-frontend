@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { RedirectService } from 'src/app/services/redirect/redirect.service';
 import {SearchPeople} from "../../../models/search-people";
 import {SearchService} from "../../../services/movies/search/search.service";
 
@@ -20,7 +20,7 @@ export class SearchPeopleComponent implements OnInit {
 
   constructor(
     private api: SearchService,
-    private router: Router
+    public redirect: RedirectService
   ) {
   }
 
@@ -64,11 +64,4 @@ export class SearchPeopleComponent implements OnInit {
       }
     }
   }
-
-  redirectToPerson(personId: number): void {
-    const uri = "/people/"
-    this.router.navigateByUrl("/", {skipLocationChange: true}).then(()=>
-    this.router.navigate([uri, personId]));
-  }
-
 }

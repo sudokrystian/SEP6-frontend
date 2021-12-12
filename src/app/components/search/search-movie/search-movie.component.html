@@ -4,9 +4,8 @@
       <div class="movie-poster-size">
         <div
           *ngIf="data.poster_path !== null; else defaultMovieText"
-          (click)="moviePosterClicked(data.id)"
+          (click)="redirect.redirectToMovie(data.id)"
         >
-        <a [routerLink]="['/movie', data.id]">
           <img
             mat-card-image
             *ngIf="posterSize"
@@ -14,17 +13,17 @@
               data.poster_path
             }}"
             alt="poster"
-          /></a>
+          />
           <mat-icon
             aria-hidden="false"
             aria-label="Add to list icon"
             class="add-icon"
-            (click)="openAddToListDialog(data.id, data.title)"
+            (click)="dialog.openAddToListDialog(data.id, data.title)"
             >add</mat-icon
           >
         </div>
         <ng-template #defaultMovieText>
-          <h2 class="poster-not-found" (click)="moviePosterClicked(data.id)">
+          <h2 class="poster-not-found" (click)="redirect.redirectToMovie(data.id)">
             Poster Not Found
           </h2>
         </ng-template>

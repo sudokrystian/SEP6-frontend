@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {CastMember} from "../../../models/cast-member.model";
 import KeenSlider from "keen-slider";
+import { RedirectService } from 'src/app/services/redirect/redirect.service';
 
 @Component({
   selector: 'app-cast-carousel',
@@ -9,10 +10,12 @@ import KeenSlider from "keen-slider";
 })
 export class CastCarouselComponent implements OnInit {
   @ViewChildren("sliderRef") sliderRef: QueryList<ElementRef<HTMLElement>> | undefined;
-  constructor() { }
   crewSlider: any = null;
+
   @Input()
   movieCast: CastMember[] | undefined;
+
+  constructor(public redirect: RedirectService) { }
 
   ngOnInit(): void {
   }

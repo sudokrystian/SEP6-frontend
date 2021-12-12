@@ -3,7 +3,7 @@
     <h1 class="shift-icon">&#10094;</h1>
   </button>
   <div class="keen-slider movie-crew-carousel" #sliderRef>
-    <div class="keen-slider__slide movie-crew-cell" *ngFor="let actor of movieCast">
+    <div (click)="redirect.redirectToPerson(actor.id)" class="keen-slider__slide movie-crew-cell" *ngFor="let actor of movieCast">
       <div class="movie-crew-img-wrapper">
         <img class="movie-crew-carousel-movie-poster"
              src="https://image.tmdb.org/t/p/w200/{{actor.profile_path}}" alt="poster"/>

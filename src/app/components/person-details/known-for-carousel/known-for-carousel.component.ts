@@ -1,9 +1,9 @@
 import {Component, ElementRef, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
 import 'keen-slider/keen-slider.min.css'
 import KeenSlider from 'keen-slider'
-import { MatDialog } from '@angular/material/dialog';
 import { KnownFor } from 'src/app/models/known-for/known-for.model';
-import { UserListsComponent } from '../user-lists/user-lists.component';
+import { RedirectService } from 'src/app/services/redirect/redirect.service';
+import { ListDialogService } from 'src/app/services/list-dialog/list-dialog.service';
 
 @Component({
   selector: 'app-known-for-carousel',
@@ -18,7 +18,7 @@ export class KnownForCarouselComponent implements OnInit {
   @Input()
   credits: KnownFor | undefined;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: ListDialogService ,public redirect: RedirectService) { }
 
   ngOnInit(): void {
 
@@ -51,20 +51,5 @@ export class KnownForCarouselComponent implements OnInit {
       });
     }
 
-  }
-
-  openAddToListDialog(movieId: number, movieTitle: string) {
-    this.dialog.open(UserListsComponent, {
-      data: {
-        movieTitle: movieTitle,
-        movieId: movieId,
-      },
-    });
-  }
-
-  test(): void {
-    console.log(this.sliderRef?.length)
-    console.log(this.sliderRef)
-    console.log(this.knownForMovieSlider)
   }
 }

@@ -11,6 +11,7 @@
     <div class="keen-slider movie-crew-carousel" #knownForMovieKeenSlider>
       <div
         class="keen-slider__slide movie-crew-cell"
+        (click)="redirect.redirectToMovie(movie.id)"
         *ngFor="let movie of credits.cast"
       >
         <div class="movie-crew-img-wrapper">
@@ -24,7 +25,7 @@
         aria-hidden="false"
         aria-label="Add to list icon"
         class="add-icon"
-        (click)="openAddToListDialog(movie.id, movie.title)"
+        (click)="dialog.openAddToListDialog(movie.id, movie.title)"
         >add</mat-icon
       >
         <div class="movie-crew-info-wrapper">

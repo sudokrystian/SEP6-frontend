@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../../../services/movies/search/search.service";
 import {TrendingMovies} from "../../../models/trending-movies.model";
-import {MatDialog} from '@angular/material/dialog';
-import { UserListsComponent } from '../../user-lists/user-lists.component';
+import { RedirectService } from 'src/app/services/redirect/redirect.service';
+import { ListDialogService } from 'src/app/services/list-dialog/list-dialog.service';
 
 @Component({
   selector: 'app-search-movie',
@@ -21,7 +21,8 @@ export class SearchMovieComponent implements OnInit {
 
   constructor(
     private api: SearchService,
-    public dialog: MatDialog
+    public dialog: ListDialogService,
+    public redirect: RedirectService
   ) {
   }
 
@@ -44,10 +45,6 @@ export class SearchMovieComponent implements OnInit {
     this._newMovieData = undefined
   }
 
-  moviePosterClicked(id: number) {
-    console.log(id)
-  }
-
   nextPage() {
     if (this._newMovieData) {
       if (this._newMovieData.page < this._newMovieData.total_pages) {
@@ -64,14 +61,5 @@ export class SearchMovieComponent implements OnInit {
         this.getMoviesDataFromAPI(this.searchBy)
       }
     }
-  }
-
-  openAddToListDialog(movieId: number, movieTitle: string) {
-    this.dialog.open(UserListsComponent, {
-      data: {
-        movieTitle: movieTitle,
-        movieId: movieId,
-      },
-    });
   }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MovieDetailService} from "../../services/movie-details/movie-detail.service";
 import {MovieDetails} from "../../models/movie-details/movie-detail.model";
 import {MovieImages} from "../../models/movie-details/movie-images";
@@ -8,7 +8,8 @@ import {CastMember} from "../../models/cast-member.model";
 import {PeopleDetail} from "../../models/movie-details/people-detail";
 import {TrendingMovies} from "../../models/trending-movies.model";
 import {MovieRatings} from "../../models/movie-ratings";
-import {ActivatedRoute, ParamMap, Route} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
+import { RedirectService } from 'src/app/services/redirect/redirect.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -28,7 +29,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   movieRating: number = 0;
   numberOfRatings: number = 0;
 
-  constructor(private service: MovieDetailService, private route: ActivatedRoute) {
+  constructor(private service: MovieDetailService, private route: ActivatedRoute, public redirect: RedirectService) {
   }
 
   id: number = 200;

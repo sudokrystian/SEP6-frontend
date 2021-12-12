@@ -1,3 +1,4 @@
+<app-search></app-search>
 <div class="movie-wrapper">
   <div *ngIf="movieToDisplay" class="movie-details-wrapper">
     <img class="movie-details-poster" src="https://image.tmdb.org/t/p/original/{{movieToDisplay.poster_path}}">
@@ -27,7 +28,7 @@
 </div>
 
 <div class="crew-wrapper">
-  <div class="movie-details-director" *ngIf="director">
+  <div (click)="redirect.redirectToPerson(director.id)" class="movie-details-director" *ngIf="director">
     <img *ngIf="director.profile_path" class="movie-details-director-poster"
          src="https://image.tmdb.org/t/p/w200/{{director.profile_path}}">
     <div class="movie-details-director-info">

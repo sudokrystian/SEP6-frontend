@@ -21,6 +21,7 @@ $text-color: white;
   overflow: hidden;
   width: $carousel-width;
   height: $keen-slider-height;
+  cursor: pointer;
 }
 
 .movie-crew-cell {
@@ -60,6 +61,20 @@ $text-color: white;
 .movie-crew-carousel-movie-poster{
   border-radius: 2%;
 }
+
+.add-icon {
+  position: absolute;
+  opacity: 0.3;
+  top: 2%;
+  left: 2%;
+  background-color: white;
+  border-radius: 40%;
+  &:hover {
+    // color: #66FCF1;
+    color: #45A29E;
+  }
+}
+
 .movie-crew-cell:hover .movie-crew-carousel-movie-poster {
   opacity: 0.1;
 }
