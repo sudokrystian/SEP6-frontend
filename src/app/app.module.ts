@@ -24,6 +24,7 @@ import { UserListsComponent } from './components/user-lists/user-lists.component
 import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
 import {FooterComponent} from "./components/global-components/footer/footer.component";
 import { PersonDetailsComponent } from './components/person-details/person-details.component';
+import { KnownForCarouselComponent } from './components/known-for-carousel/known-for-carousel.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { PersonDetailsComponent } from './components/person-details/person-detai
     UserListsComponent,
     MovieCommentsComponent,
     FooterComponent,
-    PersonDetailsComponent
+    PersonDetailsComponent,
+    KnownForCarouselComponent
   ],
   imports: [
     BrowserModule,

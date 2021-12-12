@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {SearchPeople} from "../../models/search-people";
 import {UrlService} from "../url/url.service";
 import { PersonDetails } from 'src/app/models/person-details.model';
-import { Credits } from 'src/app/models/credits.model';
+import { KnownFor } from 'src/app/models/known-for/known-for.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class PeopleService {
     return this.http.get<PersonDetails>(this.url.getServerURL() + 'people/' + personId)
   }
 
-  getPersonCredits(personId: number): Observable<Credits> {
-    return this.http.get<Credits>(this.url.getServerURL() + 'people/' + personId + "/credits")
+  getPersonCredits(personId: number): Observable<KnownFor> {
+    return this.http.get<KnownFor>(this.url.getServerURL() + 'people/' + personId + "/credits")
   }
   
   getTrendingPeople(): Observable<SearchPeople> {

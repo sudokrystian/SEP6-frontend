@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Credits } from 'src/app/models/credits.model';
+import { KnownFor } from 'src/app/models/known-for/known-for.model';
 import { PersonDetails } from 'src/app/models/person-details.model';
 import { PeopleService } from 'src/app/services/people/people.service';
 
@@ -12,7 +12,7 @@ import { PeopleService } from 'src/app/services/people/people.service';
 export class PersonDetailsComponent implements OnInit {
 
   personData: PersonDetails | undefined;
-  personCredits: Credits | undefined;
+  personCredits: KnownFor | undefined;
 
   constructor(private api: PeopleService, private route: ActivatedRoute) { }
 
@@ -27,7 +27,6 @@ export class PersonDetailsComponent implements OnInit {
   getPersonDetails(personId: number) {
     this.api.getPersonDetails(personId).subscribe({
       next: (data) => {
-        console.log(data)
         this.personData = data;
       },
       error: (e) => console.error("Error: " + e),
@@ -40,7 +39,6 @@ export class PersonDetailsComponent implements OnInit {
   getPersonCredits(personId: number) {
     this.api.getPersonCredits(personId).subscribe({
       next: (data) => {
-        console.log(data)
         this.personCredits = data;
       },
       error: (e) => console.error("Error: " + e),
