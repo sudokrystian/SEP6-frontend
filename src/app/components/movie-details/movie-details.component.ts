@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {MovieDetailService} from "../../services/movie-details/movie-detail.service";
 import {MovieDetails} from "../../models/movie-details/movie-detail.model";
 import {MovieImages} from "../../models/movie-details/movie-images";
@@ -15,7 +15,7 @@ import {ActivatedRoute, ParamMap, Route} from "@angular/router";
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.scss']
 })
-export class MovieDetailsComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit, OnDestroy {
 
   movieToDisplay: MovieDetails | undefined;
   movieImagesToDisplay: MovieImages | undefined;
@@ -28,7 +28,7 @@ export class MovieDetailsComponent implements OnInit {
   movieRating: number = 0;
   numberOfRatings: number = 0;
 
-  constructor(private service: MovieDetailService, private route: ActivatedRoute) {
+  constructor(private service: MovieDetailService, private route: ActivatedRoute, private router: Route) {
   }
 
   id: number = 200;
@@ -113,5 +113,9 @@ export class MovieDetailsComponent implements OnInit {
         this.numberOfRatings = res.length;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+
   }
 }
