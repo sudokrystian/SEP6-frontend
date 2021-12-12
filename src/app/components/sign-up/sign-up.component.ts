@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {sha256} from "js-sha256";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthenticationService} from "../../services/authentication/authentication.service";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { sha256 } from "js-sha256";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { AuthenticationService } from "../../services/authentication/authentication.service";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -14,13 +14,13 @@ export class SignUpComponent implements OnInit {
   // @ts-ignore
   signupFormGroup: FormGroup;
 
-  errorMessage:string = '';
-  messageToUser:string = '';
+  errorMessage: string = '';
+  messageToUser: string = '';
   registered = false;
 
   constructor(private api: AuthenticationService,
-              private fb: FormBuilder,
-              private router: Router) {
+    private fb: FormBuilder,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -58,12 +58,20 @@ export class SignUpComponent implements OnInit {
 
     this.api.register(username, email, sha256(password)).subscribe({
       next: (res) => {
-        if (res.status === 200) {
+        if (res.success === true) {
           this.registered = true;
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/login');
         }
       },
-      error: (err) => console.log(err),
+      error: (err) => {
+        if (err.status == 403) {
+          this.errorMessage = "User " + username + " already exists. Change your credentials"
+          this.signupFormGroup.reset();
+        } else {
+          console.log("Error")
+          console.log(err)
+        }
+      }
     });
   }
 

@@ -6,15 +6,44 @@
 
 .login-wrapper {
   margin: auto;
-  width: 210px;
-  height: 200px;
+  width: 300px;
 }
-.login-button-container{
+
+.login-mat-card {
+  background-color: #0b0c10a9;
+  height: 200px;
+  border-radius: 5%;
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      padding-top: 10px;
+      color: red;
+      text-align: center;
+    }
+  }
+
+  .mat-input-element {
+    caret-color: #45A29E;
+  }
+
 
 }
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .login-submit-button {
+  color: #000;
+  background-color: #66fcf1;
   margin-right: 16px;
 }
 .login-cancel-button {
-  margin-left:  16px;
+  margin-left: 16px;
 }

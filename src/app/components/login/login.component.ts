@@ -34,28 +34,34 @@ export class LoginComponent implements OnInit {
   }
 
   submitLogin() {
+    
     const username = this.loginFormGroup.get('username')?.value;
-    const password = sha256(this.loginFormGroup.get('password')?.value);
-    this.api.login(username, password).subscribe({
-        next: x => {
+    const password = this.loginFormGroup.get('password')?.value;
+    if(username && password) {
+      const hashedPassword = sha256(password)  
+      this.api.login(username, hashedPassword).subscribe({
+          next: x => {
+  
+            localStorage.setItem('username', username)
+            localStorage.setItem('loginStatus', 'true');
+            localStorage.setItem('token', x.access);
+            this.router.navigateByUrl('/');
+          },
+          error: err => {
+            if (err.error === 'Incorrect login or password'){
+              this.errorMessage = err.error;
+            } else if(err.error.detail === 'No active account found with the given credentials') {
+              this.errorMessage = err.error.detail;
+            }
+              console.log("LOGIN: ERROR")
+              console.log(err)
+  
+          },
+        });
+    } else {
+      this.errorMessage = "Insert credentials to log in"
+    }
 
-          localStorage.setItem('username', username)
-          localStorage.setItem('loginStatus', 'true');
-          localStorage.setItem('token', x.access);
-          console.log(`Submit login next: ${x}`);
-          this.router.navigateByUrl('/');
-        },
-        error: err => {
-          if (err.error === 'Incorrect login or password'){
-            this.errorMessage = err.error;
-          } else if(err.error.detail === 'No active account found with the given credentials') {
-            this.errorMessage = err.error.detail;
-          }
-            console.log("LOGIN: ERROR")
-            console.log(err)
-
-        },
-      });
   }
 
   cancel() {

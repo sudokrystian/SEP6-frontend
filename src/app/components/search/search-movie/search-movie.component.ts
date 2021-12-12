@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../../../services/movies/search/search.service";
 import {TrendingMovies} from "../../../models/trending-movies.model";
+import {MatDialog} from '@angular/material/dialog';
+import { UserListsComponent } from '../../user-lists/user-lists.component';
 
 @Component({
   selector: 'app-search-movie',
@@ -19,6 +21,7 @@ export class SearchMovieComponent implements OnInit {
 
   constructor(
     private api: SearchService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -61,5 +64,14 @@ export class SearchMovieComponent implements OnInit {
         this.getMoviesDataFromAPI(this.searchBy)
       }
     }
+  }
+
+  openAddToListDialog(movieId: number, movieTitle: string) {
+    this.dialog.open(UserListsComponent, {
+      data: {
+        movieTitle: movieTitle,
+        movieId: movieId,
+      },
+    });
   }
 }

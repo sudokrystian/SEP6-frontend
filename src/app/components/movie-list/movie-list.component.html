@@ -1,3 +1,4 @@
+<app-search></app-search>
 <div *ngIf="movieList; else emptyList" class="movie-list-container">
   <div *ngFor="let list of movieList">
     <div class="row">
@@ -25,4 +26,6 @@
     </ng-template>
   </div>
 </div>
-<ng-template #emptyList>{{ movieListsErrorMessage }}</ng-template>
+<ng-template #emptyList>
+  <p class="empty-movie-list-error">{{ movieListsErrorMessage }}</p>
+</ng-template>

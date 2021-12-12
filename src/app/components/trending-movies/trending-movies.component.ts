@@ -3,7 +3,7 @@ import {TrendingMovies} from 'src/app/models/trending-movies.model';
 import {MoviesService} from 'src/app/services/movies/movies.service';
 import 'keen-slider/keen-slider.min.css'
 import KeenSlider from 'keen-slider'
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { UserListsComponent } from '../user-lists/user-lists.component';
 
 @Component({
