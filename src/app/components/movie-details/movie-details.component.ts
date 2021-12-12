@@ -28,7 +28,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   movieRating: number = 0;
   numberOfRatings: number = 0;
 
-  constructor(private service: MovieDetailService, private route: ActivatedRoute, private router: Route) {
+  constructor(private service: MovieDetailService, private route: ActivatedRoute) {
   }
 
   id: number = 200;
