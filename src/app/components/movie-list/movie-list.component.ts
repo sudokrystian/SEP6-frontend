@@ -12,7 +12,7 @@ export class MovieListComponent implements OnInit {
 
   movieList: MovieListDetails[] | undefined;
 
-  movieListsErrorMessage: string = 'You have no existing movie lists.';
+  movieListsErrorMessage: string = 'You have no movies added to your list. Add some by pressing + button in the top left corner of the poster of the movie.';
 
   constructor(private api: MovieListService, private router: Router) { }
 
@@ -27,10 +27,12 @@ export class MovieListComponent implements OnInit {
         console.log(value)
       },
       error: error => {
-        console.log(error);
         if(error.status == 401) {
           this.movieListsErrorMessage = "Log in to see your movie lists"
           this.router.navigateByUrl('/login');
+          localStorage.clear();
+        } else {
+          console.log(error);
         }
       }
     })
@@ -42,9 +44,11 @@ export class MovieListComponent implements OnInit {
         this.getUserLists()
       },
       error: error => {
-        console.log(error);
         if(error.status == 401) {
           this.router.navigateByUrl('/login');
+          localStorage.clear();
+        } else {
+          console.log(error);
         }
       }
     })
@@ -56,9 +60,11 @@ export class MovieListComponent implements OnInit {
         this.getUserLists()
       },
       error: error => {
-        console.log(error);
         if(error.status == 401) {
           this.router.navigateByUrl('/login');
+          localStorage.clear();
+        } else {
+          console.log(error);
         }
       }
     })

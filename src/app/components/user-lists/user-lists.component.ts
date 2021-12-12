@@ -45,6 +45,7 @@ export class UserListsComponent implements OnInit {
         if (error.status === 401) {
           this.errorMessageDisplayLists = "You have to log in to add movie to your lists";
           this.redirectToLogin();
+          localStorage.clear();
         } else {
           console.log(error);
         }
@@ -64,6 +65,7 @@ export class UserListsComponent implements OnInit {
           if (error.status === 401) {
             this.errorMessageCreateList = "You have to be logged in to create a list";
             this.redirectToLogin();
+            localStorage.clear();
           } else {
             console.log(error);
           }
@@ -82,6 +84,7 @@ export class UserListsComponent implements OnInit {
       error: error => {
         if (error.status === 401) {
           this.redirectToLogin();
+          localStorage.clear();
         } else {
           console.log(error);
         }
