@@ -1,11 +1,16 @@
+.dialog-title {
+  text-align: center;
+}
+
 .user-lists-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #7b1fa2;
-    width: 300px;
+    background-color: #c5c6c770;
+    width: 350px;
     height: 300px;
+    margin: 0px;
 }
 
 .create-list-title {
@@ -23,8 +28,9 @@
 }
 
 .create-list-button {
-    background-color: #69f0ae;
-    color: #000000de;
+    // background-color: #45A29E;
+    background-color: #66FCF1;
+    color: #000000;
     margin-top: 8px;
 }
 

@@ -38,6 +38,7 @@ $poster-size: 200px;
     position: relative;
     align-items: center;
     width: $poster-size;
+    cursor: pointer;
   }
 
   .trending-movie-img-wrapper {
@@ -79,7 +80,8 @@ $poster-size: 200px;
     background-color: white;
     border-radius: 40%;
     &:hover {
-      color: #69f0ae;
+      // color: #66FCF1;
+      color: #45A29E;
     }
   }
 
