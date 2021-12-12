@@ -1,4 +1,4 @@
-import { MovieDetails } from "./movie-detail.model";
+import {MovieDetails} from "./movie-details/movie-detail.model";
 
 export interface MovieListDetails {
     list_id: number,

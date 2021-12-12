@@ -2,33 +2,51 @@
   <div class="movie-search-list">
     <div *ngFor="let data of _newMovieData.results" class="movie-list">
       <div class="movie-poster-size">
-        <div *ngIf="data.poster_path !== null; else defaultMovieText" (click)="moviePosterClicked(data.id)">
-          <img mat-card-image *ngIf="posterSize" src="https://image.tmdb.org/t/p/w{{posterSize}}/{{data.poster_path}}"
-               alt="poster"/>
+        <div
+          *ngIf="data.poster_path !== null; else defaultMovieText"
+          (click)="redirect.redirectToMovie(data.id)"
+        >
+          <img
+            mat-card-image
+            *ngIf="posterSize"
+            src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
+              data.poster_path
+            }}"
+            alt="poster"
+          />
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Add to list icon"
+            class="add-icon"
+            (click)="dialog.openAddToListDialog(data.id, data.title)"
+            >add</mat-icon
+          >
         </div>
         <ng-template #defaultMovieText>
-          <h2 class="poster-not-found" (click)="moviePosterClicked(data.id)">Poster Not Found</h2>
+          <h2 class="poster-not-found" (click)="redirect.redirectToMovie(data.id)">
+            Poster Not Found
+          </h2>
         </ng-template>
       </div>
       <div class="information-div">
-        <h2>{{data.title}}</h2>
-        <p>({{data.release_date}})</p>
-        <p class="information-div-overview">{{data.overview}}</p>
+        <h2>{{ data.title }}</h2>
+        <p>({{ data.release_date }})</p>
+        <p class="information-div-overview">{{ data.overview }}</p>
       </div>
     </div>
   </div>
 
   <div class="movie-pagination-div">
-
     <button mat-button (click)="previousPage()" class="search-previous-button">
       <mat-icon color="primary">keyboard_arrow_left</mat-icon>
     </button>
 
-    <p class="movie-pagination-text">Page {{_newMovieData.page}} of {{_newMovieData.total_pages}}</p>
+    <p class="movie-pagination-text">
+      Page {{ _newMovieData.page }} of {{ _newMovieData.total_pages }}
+    </p>
 
     <button mat-button (click)="nextPage()" class="search-next-button">
       <mat-icon color="primary">keyboard_arrow_right</mat-icon>
     </button>
-
   </div>
 </div>

@@ -17,12 +17,12 @@
   display: block;
   width: 100%;
   height: auto;
-  transition: .5s ease;
+  transition: 0.5s ease;
   backface-visibility: hidden;
 }
 
 .information-div {
-  transition: .5s ease;
+  transition: 0.5s ease;
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -43,12 +43,31 @@
   -webkit-box-orient: vertical;
 }
 
-.movie-list:hover .movie-poster-size {
-  opacity: 0.1;
+.add-icon {
+  position: absolute;
+  opacity: 0.3;
+  top: 2%;
+  left: 2%;
+  background-color: white;
+  border-radius: 40%;
+  cursor: pointer;
 }
 
-.movie-list:hover .information-div {
-  opacity: 1;
+.movie-list:hover {
+  .movie-poster-size {
+    opacity: 0.1;
+
+    .add-icon {
+      &:hover {
+        opacity: 10;
+        background-color: #fff;
+        color: #45a29e;
+      }
+    }
+  }
+  .information-div {
+    opacity: 1;
+  }
 }
 
 .movie-pagination-div {

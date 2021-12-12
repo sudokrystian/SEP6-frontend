@@ -2,6 +2,12 @@
   width: 350px;
   height: 350px;
   margin: auto;
+  background-color: #0b0c10a9;
+  border-radius: 5%;
+
+  .mat-input-element {
+    caret-color: #45A29E;
+  }
 }
 
 .sing-up-wrapper {
@@ -22,6 +28,8 @@
 }
 
 .sign-up-submit-button {
+  color: #000;
+  background-color: #66fcf1;
   margin-right: 16px;
 }
 

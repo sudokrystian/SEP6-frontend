@@ -1,0 +1,86 @@
+$content-margins: 3% 20% 3% 20%;
+.movie-wrapper {
+  width: 60%;
+  margin: $content-margins;
+}
+
+.movie-details-wrapper {
+  display: flex;
+
+  .movie-details-title-wrapper {
+    border-bottom: 1px solid orange;
+    display: flex;
+    justify-content: space-between;
+
+    .movie-details-static-rating {
+      display: flex;
+      justify-content: space-evenly;
+      .movie-details-rating-star {
+        color: orange;
+        transform: scale(1.6);
+        margin-right: 16px;
+      }
+    }
+
+  }
+}
+
+.movie-details-image {
+  width: 100%;
+
+  justify-content: center;
+  image-rendering: auto;
+  image-resolution: from-image;
+}
+
+.movie-details-poster {
+  width: 40%;
+  border-radius: 1%;
+}
+
+.movie-details-info {
+  width: 40%;
+  margin-left: 3%;
+  color: white;
+}
+
+.crew-wrapper {
+  padding-top: 1%;
+  background-color: white;
+}
+
+.movie-details-director {
+  .movie-details-director-poster {
+    border-radius: 1%;
+    height: 300px;
+  }
+
+  cursor: pointer;
+  width: 60%;
+  margin: $content-margins;
+  display: flex;
+  color: black;
+
+  .movie-details-director-info {
+    justify-content: space-between;
+    margin-left: 3%
+  }
+}
+
+.movie-details-names {
+  font-size: 30px;
+
+}
+.movie-details-director-name{
+  border-bottom: 1px solid orange;
+  padding-bottom: 16px;
+}
+
+.movie-details-cast-and-similar {
+  padding-top: 8px;
+  padding-left: 16px;
+}
+
+
+
+

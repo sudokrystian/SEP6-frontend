@@ -1,6 +1,6 @@
 <div class="search-form-wrapper" [formGroup]="searchFormGroup">
   <mat-form-field class="search-form-options" appearance="fill">
-    <mat-select formControlName="option">
+    <mat-select formControlName="option" (selectionChange)="submitSearch()">
       <mat-option *ngFor="let option of options" [value]="option.value">
         {{ option.viewValue }}
       </mat-option>

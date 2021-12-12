@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+  // Color theme:
+  // #0B0C10 black
+  // #1F2833 blueish-black
+  // #C5C6C7 grey
+  // #66FCF1 light aqua
+  // #45A29E dark aqua
 
 html, body {
   height: 100%;
@@ -8,5 +14,9 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   // background-color: #DDE5E7;
+  background-color: #1F2833;
+}
+
+.mat-dialog-container {
   background-color: #1F2833;
 }

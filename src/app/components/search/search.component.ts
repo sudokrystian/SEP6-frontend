@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SearchMovieComponent} from "./search-movie/search-movie.component";
 import {SearchPeopleComponent} from "./search-people/search-people.component";
-import { MatButtonModule } from '@angular/material/button'
 
 interface Option {
   value: string
@@ -50,7 +49,6 @@ export class SearchComponent implements OnInit {
   sendSearchToApi() {
     let optionsValue = this.searchFormGroup.get('option')?.value
 
-    console.log(optionsValue)
     if (optionsValue === 'movie' && this.searchValue !== '') {
       this.childSearchPeople?.clearPeopleData()
       this.isTrendingHidden = true

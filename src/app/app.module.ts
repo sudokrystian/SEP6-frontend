@@ -12,19 +12,23 @@ import {LoginComponent} from './components/login/login.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule, HttpClientXsrfModule} from "@angular/common/http";
-import { SearchPeopleComponent } from './components/search/search-people/search-people.component';
-import { TrendingMoviesComponent } from './components/trending-movies/trending-movies.component';
-import { NavbarComponent } from './components/global-components/navbar/navbar.component';
-import { MovieStatisticsComponent } from './components/movie-statistics/movie-statistics.component';
-import { NgxEchartsModule } from 'ngx-echarts';
+import {TrendingMoviesComponent} from './components/trending-movies/trending-movies.component';
+import {NavbarComponent} from './components/global-components/navbar/navbar.component';
+import {MovieStatisticsComponent} from './components/movie-statistics/movie-statistics.component';
+import {NgxEchartsModule} from 'ngx-echarts';
 import {TrendingPeopleComponent} from "./components/trending-people/trending-people.component";
+import {SimilarMovieCarouselComponent} from "./components/movie-details/similar-movie-carousel/similar-movie-carousel.component";
+import {CastCarouselComponent} from "./components/movie-details/cast-carousel/cast-carousel.component";
+import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
+import {SearchPeopleComponent} from "./components/search/search-people/search-people.component";
 import { HomeComponent } from './components/home/home.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { UserListsComponent } from './components/user-lists/user-lists.component';
 import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
 import {FooterComponent} from "./components/global-components/footer/footer.component";
 import {RatingComponent} from "./components/rating/rating.component";
-
+import { PersonDetailsComponent } from './components/person-details/person-details.component';
+import { KnownForCarouselComponent } from './components/person-details/known-for-carousel/known-for-carousel.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +41,18 @@ import {RatingComponent} from "./components/rating/rating.component";
     MovieStatisticsComponent,
     TrendingMoviesComponent,
     NavbarComponent,
-    TrendingPeopleComponent,
     HomeComponent,
+    MovieDetailsComponent,
+    CastCarouselComponent,
+    SimilarMovieCarouselComponent,
+    TrendingPeopleComponent,
     MovieListComponent,
     UserListsComponent,
     MovieCommentsComponent,
     RatingComponent,
-    FooterComponent
+    FooterComponent,
+    PersonDetailsComponent,
+    KnownForCarouselComponent
 
   ],
   imports: [

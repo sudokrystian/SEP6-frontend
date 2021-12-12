@@ -1,14 +1,14 @@
-import { BelongsToCollection } from "./belongs-to-collection.model";
-import { Genre } from "./genre.model";
-import { ProductionCompany } from "./production-company.mode";
-import { SpokenLanguage } from "./spoken-language.model";
+import { BelongsToCollection } from "../belongs-to-collection.model";
+import { Genre } from "../genre.model";
+import { ProductionCompany } from "../production-company.mode";
+import { SpokenLanguage } from "../spoken-language.model";
 
 export interface MovieDetails {
     adult: boolean,
     backdrop_path: string,
     belongs_to_collection: BelongsToCollection,
     budget: number,
-    genre_ids: Genre[],
+    genres: Genre[],
     homepage: string,
     id: number,
     imdb_id: string,

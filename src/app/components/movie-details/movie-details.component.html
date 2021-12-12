@@ -1,0 +1,53 @@
+<app-search></app-search>
+<div class="movie-wrapper">
+  <div *ngIf="movieToDisplay" class="movie-details-wrapper">
+    <img class="movie-details-poster" src="https://image.tmdb.org/t/p/original/{{movieToDisplay.poster_path}}">
+
+    <div class="movie-details-info">
+      <div class="movie-details-title-wrapper">
+        <h1 class="movie-details-names">{{movieToDisplay.title}}</h1>
+        <div class="movie-details-static-rating">
+          <mat-icon class="movie-details-rating-star">{{'star'}}</mat-icon>
+          <p>{{movieRating}}/5 ({{numberOfRatings}})</p>
+        </div>
+      </div>
+      <h2>{{movieToDisplay.release_date}}</h2>
+      <div class="movie-details-info-overview">
+        <p>{{movieToDisplay.overview}}</p>
+        <p>Length: {{movieToDisplay.runtime}} minutes</p>
+        <p>Budget: {{movieToDisplay.budget}} $</p>
+        <p>Revenue: {{movieToDisplay.revenue}} $</p>
+      </div>
+      <p>Genres:</p>
+      <div class="" *ngFor="let genre of movieToDisplay.genres">
+        <li>{{genre.name}}</li>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="crew-wrapper">
+  <div (click)="redirect.redirectToPerson(director.id)" class="movie-details-director" *ngIf="director">
+    <img *ngIf="director.profile_path" class="movie-details-director-poster"
+         src="https://image.tmdb.org/t/p/w200/{{director.profile_path}}">
+    <div class="movie-details-director-info">
+      <h1 class="movie-details-names movie-details-director-name">{{director.name}}</h1>
+      <h2>{{director.job}}</h2>
+      <p *ngIf="directorInfo">Bibliography<br>{{directorInfo.biography}}</p>
+    </div>
+  </div>
+
+  <h1 class="movie-details-cast-and-similar">Movie cast:</h1>
+  <hr>
+  <app-cast-carousel [movieCast]="movieCast"></app-cast-carousel>
+  <hr>
+  <h1 class="movie-details-cast-and-similar">Similar movies:</h1>
+  <hr>
+  <app-similar-movie-carousel [similarMovies]="similarMovies"></app-similar-movie-carousel>
+  <hr>
+</div>
+<div *ngIf="movieToDisplay">
+  <app-movie-comments  [movieId]="movieToDisplay.id"></app-movie-comments>
+</div>
+
