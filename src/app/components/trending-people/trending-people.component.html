@@ -13,15 +13,17 @@
       >
         <div class="trending-people-img-wrapper">
           <img
-            *ngIf="posterSize"
+            *ngIf="person.profile_path !== null; else defaultPicture"
             class="trending-person-poster"
             src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
               person.profile_path
             }}"
             alt="poster"
           />
+          <ng-template #defaultPicture>
+            <img src="../../../../assets/harold.jpeg" alt="image_not_found" class="image-not-found">
+          </ng-template>
         </div>
-
         <div class="trending-people-info-wrapper">
           <h2 class="trending-person-name">{{ person.name }}</h2>
           <h3>Known for : {{ person.known_for_department }}</h3>

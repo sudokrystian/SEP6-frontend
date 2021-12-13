@@ -13,6 +13,7 @@
               data.poster_path
             }}"
             alt="poster"
+            class="movie-poster-image"
           />
           <mat-icon
             aria-hidden="false"
@@ -23,9 +24,7 @@
           >
         </div>
         <ng-template #defaultMovieText>
-          <h2 class="poster-not-found" (click)="redirect.redirectToMovie(data.id)">
-            Poster Not Found
-          </h2>
+          <img src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
         </ng-template>
       </div>
       <div class="information-div">

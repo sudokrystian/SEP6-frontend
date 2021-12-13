@@ -3,8 +3,7 @@ import {TrendingMovies} from 'src/app/models/trending-movies.model';
 import {MoviesService} from 'src/app/services/movies/movies.service';
 import 'keen-slider/keen-slider.min.css'
 import KeenSlider from 'keen-slider'
-import { UserListsComponent } from '../user-lists/user-lists.component';
-import { ListDialogService } from 'src/app/services/list-dialog/list-dialog.service';
+import {ListDialogService} from 'src/app/services/list-dialog/list-dialog.service';
 
 @Component({
   selector: 'app-trending-movies',

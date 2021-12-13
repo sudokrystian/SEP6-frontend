@@ -59,3 +59,16 @@
 .people-pagination-text {
   color: white;
 }
+
+.image-not-found {
+  border-radius: 2%;
+  height: 450px;
+  width: 300px;
+  &:hover {
+    opacity: 0.1;
+  }
+}
+
+.people-poster {
+  border-radius: 2%;
+}

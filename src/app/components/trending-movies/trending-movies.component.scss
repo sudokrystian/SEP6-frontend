@@ -109,3 +109,12 @@ $poster-size: 200px;
     }
   }
 }
+
+.image-not-found{
+  border-radius: 2%;
+  height: 300px;
+  width: 200px;
+  &:hover {
+    opacity: 0.1;
+  }
+}

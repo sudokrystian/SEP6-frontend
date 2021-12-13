@@ -13,11 +13,14 @@
       *ngFor="let movie of similarMovies.results"
     >
       <div class="movie-crew-img-wrapper">
-        <img
+        <img *ngIf="movie.poster_path !== null; else defaultSimilarPoster"
           class="movie-crew-carousel-movie-poster"
           src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}"
           alt="poster"
         />
+        <ng-template #defaultSimilarPoster>
+          <img src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
+        </ng-template>
         <mat-icon
           aria-hidden="false"
           aria-label="Add to list icon"

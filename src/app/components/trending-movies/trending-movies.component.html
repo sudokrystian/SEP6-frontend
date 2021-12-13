@@ -11,14 +11,16 @@
       ><a [routerLink]="['/movie', movie.id]">
         <div class="trending-movie-img-wrapper">
           <img
-            *ngIf="posterSize"
+            *ngIf="movie.poster_path !== null; else defaultTrendingPoster"
             class="trending-movie-carousel-movie-poster"
             src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
               movie.poster_path
             }}"
             alt="poster"
           />
-
+          <ng-template #defaultTrendingPoster>
+            <img src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
+          </ng-template>
         </div>
       </a>
         <mat-icon

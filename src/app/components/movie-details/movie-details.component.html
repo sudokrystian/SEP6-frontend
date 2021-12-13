@@ -11,7 +11,7 @@
           <p>{{movieRating}}/5 ({{numberOfRatings}})</p>
         </div>
       </div>
-      <h2>{{movieToDisplay.release_date}}</h2>
+        <h2>{{movieToDisplay.release_date}}</h2>
       <div class="movie-details-info-overview">
         <p>{{movieToDisplay.overview}}</p>
         <p>Length: {{movieToDisplay.runtime}} minutes</p>
@@ -22,7 +22,22 @@
       <div class="" *ngFor="let genre of movieToDisplay.genres">
         <li>{{genre.name}}</li>
       </div>
+      <div class="movie-details-logged-in" *ngIf="auth.isLoggedIn()">
+        <div class="movie-details-my-rating">
+          <p>My rating</p>
+          <app-rating [movieId]="movieToDisplay.id"></app-rating>
+        </div>
 
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Add to list icon"
+          class="add-movie-icon"
+          (click)="dialog.openAddToListDialog(movieToDisplay.id, movieToDisplay.title)"
+        >add
+        </mat-icon>
+      </div>
+      <button mat-raised-button (click)="dialog.openMovieRatingStatistics(movieToDisplay.id)">Movie rating over time
+      </button>
     </div>
   </div>
 </div>
@@ -48,6 +63,6 @@
   <hr>
 </div>
 <div *ngIf="movieToDisplay">
-  <app-movie-comments  [movieId]="movieToDisplay.id"></app-movie-comments>
+  <app-movie-comments [movieId]="movieToDisplay.id"></app-movie-comments>
 </div>
 

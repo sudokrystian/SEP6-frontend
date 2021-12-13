@@ -27,7 +27,10 @@ export class UserListsComponent implements OnInit {
   errorMessageCreateList: string = '';
   newListName: string = '';
 
-  constructor(private api: MovieListService, public dialogRef: MatDialogRef<UserListsComponent>, @Inject(MAT_DIALOG_DATA) public data: UserMovieListData, private router: Router) {
+  constructor(private api: MovieListService,
+              public dialogRef: MatDialogRef<UserListsComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: UserMovieListData,
+              private router: Router) {
     this.movieId = data.movieId;
     this.movieTitle = data.movieTitle;
   }

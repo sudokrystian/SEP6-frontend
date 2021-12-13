@@ -6,6 +6,7 @@ $content-margins: 3% 20% 3% 20%;
 
 .movie-details-wrapper {
   display: flex;
+  justify-content: center;
 
   .movie-details-title-wrapper {
     border-bottom: 1px solid orange;
@@ -81,6 +82,19 @@ $content-margins: 3% 20% 3% 20%;
   padding-left: 16px;
 }
 
+.movie-details-logged-in {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  .add-movie-icon {
+    &:hover {
+      opacity: 10;
+      color: #45a29e;
+    }
+  }
+}
 
-
-
+.display-flex-space-between{
+  display: flex;
+  justify-content: space-between;
+}

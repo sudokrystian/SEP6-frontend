@@ -11,10 +11,13 @@
         <a
         [routerLink]="'/details'"
         [queryParams]="{id: movie.id}">
-        <img
+        <img *ngIf="movie.poster_path !== null; else defaultPicture"
           src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}"
           alt="Poster couldn't be loaded"
         />
+          <ng-template #defaultPicture>
+            <img src="../../../../assets/harold.jpeg" alt="image_not_found" class="image-not-found">
+          </ng-template>
         </a>
         <div class="movie-details">
           <h2 class="">{{ movie.original_title }}</h2>

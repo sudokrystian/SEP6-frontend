@@ -5,8 +5,9 @@
   <div class="keen-slider movie-crew-carousel" #sliderRef>
     <div (click)="redirect.redirectToPerson(actor.id)" class="keen-slider__slide movie-crew-cell" *ngFor="let actor of movieCast">
       <div class="movie-crew-img-wrapper">
-        <img class="movie-crew-carousel-movie-poster"
+        <img *ngIf="actor.profile_path" class="movie-crew-carousel-movie-poster"
              src="https://image.tmdb.org/t/p/w200/{{actor.profile_path}}" alt="poster"/>
+        <img *ngIf="!actor.profile_path" src="../../../../assets/harold.jpeg" alt="image_not_found" class="image-not-found">
       </div>
       <div class="movie-crew-info-wrapper">
         <h2 class="movie-crew-name">{{ actor.name }}</h2>

@@ -47,3 +47,12 @@
   background-color: #f44336;
   color: #fff;
 }
+
+.image-not-found {
+  border-radius: 2%;
+  height: 300px;
+  width: 200px;
+  &:hover {
+    opacity: 0.1;
+  }
+}

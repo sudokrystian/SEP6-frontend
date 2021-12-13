@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { StatisticsService } from 'src/app/services/statistics/statistics.service';
-import { EChartsOption } from 'echarts';
-import { MovieRatings } from 'src/app/models/movie-rating.model';
-import { MovieStatistic } from 'src/app/models/movie-statistic.model';
+import {Component, Inject, OnInit} from '@angular/core';
+import {StatisticsService} from 'src/app/services/statistics/statistics.service';
+import {EChartsOption} from 'echarts';
+import {MovieRatings} from 'src/app/models/movie-rating.model';
+import {MovieStatistic} from 'src/app/models/movie-statistic.model';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-movie-statistics',
@@ -12,13 +13,15 @@ import { MovieStatistic } from 'src/app/models/movie-statistic.model';
 export class MovieStatisticsComponent implements OnInit {
 
   // Movie with ID 617653 is a good example so this value is left as default for now
-  @Input()
   movieId: number | undefined;
 
   // Documentation for the EChart: https://xieziyu.github.io/ngx-echarts/api-doc/
   chartOption: EChartsOption | undefined;
 
-  constructor(private api: StatisticsService) { }
+  constructor(private api: StatisticsService,
+              @Inject(MAT_DIALOG_DATA) public data: number) {
+    this.movieId = data;
+  }
 
   ngOnInit(): void {
     if (this.movieId !== undefined) {

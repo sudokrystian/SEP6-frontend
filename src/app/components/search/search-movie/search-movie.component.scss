@@ -78,12 +78,18 @@
 }
 
 .poster-not-found {
-  font-size: 30px;
-  color: white;
+  border-radius: 2%;
   height: 450px;
-  width: 290px;
+  width: 300px;
+  &:hover {
+    opacity: 0.1;
+  }
 }
 
 .movie-pagination-text {
   color: white;
+}
+
+.movie-poster-image{
+  border-radius: 2%;
 }

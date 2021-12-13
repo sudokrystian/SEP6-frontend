@@ -10,6 +10,10 @@ import {TrendingMovies} from "../../models/trending-movies.model";
 import {MovieRatings} from "../../models/movie-ratings";
 import {ActivatedRoute} from "@angular/router";
 import { RedirectService } from 'src/app/services/redirect/redirect.service';
+import {ListDialogService} from "../../services/list-dialog/list-dialog.service";
+import {SessionStorageService} from "../../services/session-storage/session-storage.service";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
+import {formatNumber} from "@angular/common";
 
 @Component({
   selector: 'app-movie-details',
@@ -29,7 +33,12 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   movieRating: number = 0;
   numberOfRatings: number = 0;
 
-  constructor(private service: MovieDetailService, private route: ActivatedRoute, public redirect: RedirectService) {
+  constructor(
+    private service: MovieDetailService,
+    private route: ActivatedRoute,
+    public redirect: RedirectService,
+    public dialog: ListDialogService,
+    public auth: AuthenticationService) {
   }
 
   id: number = 200;
