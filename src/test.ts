@@ -2,20 +2,13 @@
 
 import 'zone.js/testing';
 import { getTestBed, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-
-// App modile stolen
-import {NgModule} from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {BrowserModule} from '@angular/platform-browser';
-
-// import {AppComponent} from 'src/app/app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import {AngularMaterialModule} from "src/app/angular-material.module";
@@ -65,19 +58,6 @@ getTestBed().initTestEnvironment(
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
-
-// beforeEach(() => {
-//   TestBed.configureTestingModule({
-//     imports: [
-//       HttpClientTestingModule,
-//       MatDialog,
-//       FormBuilder,
-//       ActivatedRoute,
-//       Router,
-
-//     ],
-//   }).compileComponents();
-// });
 
 beforeEach(() => {
   TestBed.configureTestingModule({
