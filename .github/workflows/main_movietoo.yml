@@ -21,10 +21,11 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: npm install, and build
+      - name: npm install, build and test
         run: |
           npm install
           npm run build --if-present
+          npm run test:prod
           
       - name: Zip artifact for deployment
         run: zip webapp.zip ./* -r
