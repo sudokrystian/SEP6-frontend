@@ -10,6 +10,7 @@ import { RatingService } from 'src/app/services/rating/rating.service';
 export class UserRatingsComponent implements OnInit {
 
   userRatings: UserRating[] | undefined
+  userAverageRating: number = 0;
 
   constructor(private api: RatingService) { }
 
@@ -21,12 +22,20 @@ export class UserRatingsComponent implements OnInit {
     this.api.getAllUserRatings().subscribe({
       next: (data) => {
         this.userRatings = data;
+        this.calculateAverageRating(data)
       },
       error: (e) => console.error("Error: " + e),
       complete: () => {
         // Request finished here you cna optionally add updates, etc.
       }
     })
+  }
+
+  calculateAverageRating(userRatings : UserRating[]): void {
+    const ratings = userRatings!.map(value => value.rating)
+    const sum = ratings.reduce((a, b) => a + b, 0);
+    const avg = (sum / ratings.length) || 0;
+    this.userAverageRating = avg;
   }
 
 }
