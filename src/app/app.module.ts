@@ -29,6 +29,7 @@ import {FooterComponent} from "./components/global-components/footer/footer.comp
 import {RatingComponent} from "./components/rating/rating.component";
 import { PersonDetailsComponent } from './components/person-details/person-details.component';
 import { KnownForCarouselComponent } from './components/person-details/known-for-carousel/known-for-carousel.component';
+import { UserRatingsComponent } from './components/user-ratings/user-ratings.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { KnownForCarouselComponent } from './components/person-details/known-for
     RatingComponent,
     FooterComponent,
     PersonDetailsComponent,
-    KnownForCarouselComponent
+    KnownForCarouselComponent,
+    UserRatingsComponent
 
   ],
   imports: [

@@ -5,6 +5,7 @@
   </div>
   <div>
     <div class="logout" *ngIf="this.authenticationService.isLoggedIn() else elseBlock">
+      <a mat-button routerLink="user/ratings">User Ratings</a>
       <a mat-button (click)="logout()">Log out</a>
     </div>
 

@@ -1,0 +1,17 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.movie-details {
+  padding-left: 15px;
+}
+
+.empty-movie-list-error {
+  padding-top: 10px;
+  padding-left: 10px;
+  color: #fff;
+}
