@@ -1,0 +1,24 @@
+$text-color: #fff;
+
+.user-average-rating {
+    color: $text-color;
+    padding-left: 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-bottom: 10px;
+  color: $text-color;
+}
+
+.movie-details {
+  padding-left: 15px;
+}
+
+.empty-movie-list-error {
+  padding-top: 10px;
+  padding-left: 10px;
+  color: $text-color;
+}

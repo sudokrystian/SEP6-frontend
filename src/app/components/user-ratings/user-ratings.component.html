@@ -1,0 +1,21 @@
+<app-search></app-search>
+<div *ngIf="userRatings">
+  <div *ngIf="userRatings.length !== 0; else noMovies">
+    <h3 class="user-average-rating">User average rating: {{ userAverageRating.toFixed(2) }}</h3>
+    <div *ngFor="let rating of userRatings" class="row">
+      <img
+        src="https://image.tmdb.org/t/p/w200/{{ rating.movie_poster }}"
+        alt="Poster couldn't be loaded"
+      />
+      <div class="movie-details">
+        <h2 class="">{{ rating.movie_name }}</h2>
+        <p class="">{{ rating.movie_overview }}</p>
+        <app-rating [movieId]="rating.movie_id"></app-rating>
+        <p>Voted {{ rating.date }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noMovies>
+    <p class="empty-movie-list-error">You didn't rate any movies yet</p>
+  </ng-template>
+</div>
