@@ -19,7 +19,7 @@
         <p>{{ personData.biography }}</p>
       </div>
       <br />
-      <h5>Industry popularity {{ personData.popularity }}</h5>
+      <h2 *ngIf="personAverageRating">Average rating of the movies {{personData.name}} starred in: {{personAverageRating.toFixed(2)}}</h2>
     </div>
   </div>
   <app-known-for-carousel [credits]="personCredits!"></app-known-for-carousel>
