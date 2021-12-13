@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { SessionStorageService } from "../session-storage/session-storage.service";
 import { MovieRatings } from "../../models/movie-rating.model";
 import { UserRating } from 'src/app/models/user-rating.model';
+import { AveragePersonRating } from 'src/app/models/average-rating.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,13 @@ export class RatingService {
   getAllUserRatings(): Observable<UserRating[]> {
     return this.http.get<UserRating[]>(
       this.url.getServerURL() + '/rating/user',
+      { headers: this.session.getCookieHeader() }
+    )
+  }
+
+  getPersonAverageRating(personId: number): Observable<AveragePersonRating> {
+    return this.http.get<AveragePersonRating>(
+      this.url.getServerURL() + '/rating/person/' + personId,
       { headers: this.session.getCookieHeader() }
     )
   }
