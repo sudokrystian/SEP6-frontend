@@ -7,8 +7,8 @@
     <div class="keen-slider trending-movie-carousel" #sliderRef>
       <div
         *ngFor="let movie of trendingMovies.results"
-        class="keen-slider__slide trending-movie-cell"
-      ><a [routerLink]="['/movie', movie.id]">
+        class="keen-slider__slide trending-movie-cell">
+        <a [routerLink]="['/movie', movie.id]">
         <div class="trending-movie-img-wrapper">
           <img
             *ngIf="movie.poster_path !== null; else defaultTrendingPoster"

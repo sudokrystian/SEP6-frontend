@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChildren} from '@angular/core';
 import KeenSlider from "keen-slider";
 import { ListDialogService } from 'src/app/services/list-dialog/list-dialog.service';
 import { RedirectService } from 'src/app/services/redirect/redirect.service';
@@ -9,7 +9,7 @@ import {TrendingMovies} from "../../../models/trending-movies.model";
   templateUrl: './similar-movie-carousel.component.html',
   styleUrls: ['./similar-movie-carousel.component.scss']
 })
-export class SimilarMovieCarouselComponent implements OnInit {
+export class SimilarMovieCarouselComponent implements OnInit, OnDestroy {
   @ViewChildren("sliderRef") sliderRef: QueryList<ElementRef<HTMLElement>> | undefined;
   similarMovieSlider: any = null;
   @Input()
@@ -31,5 +31,9 @@ export class SimilarMovieCarouselComponent implements OnInit {
         },
       })
     });
+  }
+
+  ngOnDestroy() {
+    if (this.similarMovieSlider) this.similarMovieSlider.destroy()
   }
 }

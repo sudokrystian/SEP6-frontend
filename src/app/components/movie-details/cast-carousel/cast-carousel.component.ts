@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {CastMember} from "../../../models/cast-member.model";
 import KeenSlider from "keen-slider";
 import { RedirectService } from 'src/app/services/redirect/redirect.service';
@@ -8,7 +8,7 @@ import { RedirectService } from 'src/app/services/redirect/redirect.service';
   templateUrl: './cast-carousel.component.html',
   styleUrls: ['./cast-carousel.component.scss']
 })
-export class CastCarouselComponent implements OnInit {
+export class CastCarouselComponent implements OnInit, OnDestroy {
   @ViewChildren("sliderRef") sliderRef: QueryList<ElementRef<HTMLElement>> | undefined;
   crewSlider: any = null;
 
@@ -31,5 +31,9 @@ export class CastCarouselComponent implements OnInit {
         },
       })
     });
+  }
+
+  ngOnDestroy() {
+    if (this.crewSlider) this.crewSlider.destroy()
   }
 }
