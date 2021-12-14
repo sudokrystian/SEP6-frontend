@@ -53,6 +53,7 @@ export class TrendingPeopleComponent implements OnInit {
     );
 
   }
+
   ngOnDestroy() {
     if (this.slider) this.slider.destroy()
   }

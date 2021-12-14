@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../../../services/movies/search/search.service";
 import {TrendingMovies} from "../../../models/trending-movies.model";
-import { RedirectService } from 'src/app/services/redirect/redirect.service';
-import { ListDialogService } from 'src/app/services/list-dialog/list-dialog.service';
+import {RedirectService} from 'src/app/services/redirect/redirect.service';
+import {ListDialogService} from 'src/app/services/list-dialog/list-dialog.service';
 
 @Component({
   selector: 'app-search-movie',

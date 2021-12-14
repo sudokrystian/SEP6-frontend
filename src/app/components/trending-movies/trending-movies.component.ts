@@ -19,7 +19,8 @@ export class TrendingMoviesComponent implements OnInit {
   // Poster size in pixels
   posterSize: number = 200;
 
-  constructor(private api: MoviesService, public dialog: ListDialogService) { }
+  constructor(private api: MoviesService, public dialog: ListDialogService) {
+  }
 
   ngOnInit(): void {
     this.loadMovies()
@@ -27,15 +28,15 @@ export class TrendingMoviesComponent implements OnInit {
 
   ngAfterViewInit() {
     this.sliderRef?.changes.subscribe((components: QueryList<ElementRef<HTMLElement>>) => {
-      this.slider = new KeenSlider<{}>(components.first.nativeElement, {
-        loop: true,
-        rtl: true,
-        slides: {
-          perView: 5,
-          spacing: 5,
-        },
-      })
-    }
+        this.slider = new KeenSlider<{}>(components.first.nativeElement, {
+          loop: true,
+          rtl: true,
+          slides: {
+            perView: 5,
+            spacing: 5,
+          },
+        })
+      }
     );
   }
 

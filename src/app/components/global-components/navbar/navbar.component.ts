@@ -1,8 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { SessionStorageService } from "../../../services/session-storage/session-storage.service";
-import { AuthenticationService } from "../../../services/authentication/authentication.service";
-import { Router } from "@angular/router";
-// import { logo } from "../../../../assets/logo.png"
+import {Component, OnInit} from "@angular/core";
+import {SessionStorageService} from "../../../services/session-storage/session-storage.service";
+import {AuthenticationService} from "../../../services/authentication/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -15,8 +14,8 @@ export class NavbarComponent implements OnInit {
     private sessionService: SessionStorageService,
     public authenticationService: AuthenticationService,
     private router: Router
-
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }

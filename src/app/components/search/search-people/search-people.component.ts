@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { RedirectService } from 'src/app/services/redirect/redirect.service';
+import {RedirectService} from 'src/app/services/redirect/redirect.service';
 import {SearchPeople} from "../../../models/search-people";
 import {SearchService} from "../../../services/movies/search/search.service";
 

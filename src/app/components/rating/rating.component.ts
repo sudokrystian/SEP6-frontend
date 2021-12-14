@@ -129,8 +129,8 @@ export class RatingComponent implements OnInit {
     this.selectedRating = value;
 
     if (this.movieId)
-    this.api.sendRatingFromUser(this.movieId, this.selectedRating).subscribe({
-      error: (err) => console.log(err)
-    })
+      this.api.sendRatingFromUser(this.movieId, this.selectedRating).subscribe({
+        error: (err) => console.log(err)
+      })
   }
 }

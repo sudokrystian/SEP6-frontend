@@ -30,7 +30,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.initializeSearchForm()
@@ -53,11 +54,13 @@ export class SearchComponent implements OnInit {
       this.childSearchPeople?.clearPeopleData()
       this.isTrendingHidden = true
       this.childSearchMovie?.getMoviesDataFromAPI(this.searchValue)
-    } if (optionsValue === 'people' && this.searchValue !== '') {
+    }
+    if (optionsValue === 'people' && this.searchValue !== '') {
       this.childSearchMovie?.clearMovieData()
       this.isTrendingHidden = true
       this.childSearchPeople?.getPeopleDataFromAPI(this.searchValue)
-    } if (this.searchValue === '') {
+    }
+    if (this.searchValue === '') {
       this.childSearchPeople?.clearPeopleData()
       this.childSearchMovie?.clearMovieData()
       this.isTrendingHidden = false
