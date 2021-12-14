@@ -1,8 +1,10 @@
 <app-search></app-search>
 <div class="movie-wrapper">
   <div *ngIf="movieToDisplay" class="movie-details-wrapper">
-    <img class="movie-details-poster" src="https://image.tmdb.org/t/p/original/{{movieToDisplay.poster_path}}">
-
+    <img *ngIf="movieToDisplay.poster_path !== null; else noPictureFound" class="movie-details-poster" src="https://image.tmdb.org/t/p/original/{{movieToDisplay.poster_path}}">
+    <ng-template #noPictureFound>
+      <h1 class="movie-details-image-not-found">Image not found</h1>
+    </ng-template>
     <div class="movie-details-info">
       <div class="movie-details-title-wrapper">
         <h1 class="movie-details-names">{{movieToDisplay.title}}</h1>

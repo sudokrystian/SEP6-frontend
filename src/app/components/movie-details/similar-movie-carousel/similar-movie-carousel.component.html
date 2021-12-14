@@ -8,23 +8,23 @@
   </button>
   <div class="keen-slider movie-crew-carousel" #sliderRef>
     <div
-      (click)="redirect.redirectToMovie(movie.id)"
       class="keen-slider__slide movie-crew-cell"
       *ngFor="let movie of similarMovies.results"
     >
       <div class="movie-crew-img-wrapper">
         <img *ngIf="movie.poster_path !== null; else defaultSimilarPoster"
+             (click)="redirect.redirectToMovie(movie.id)"
           class="movie-crew-carousel-movie-poster"
           src="https://image.tmdb.org/t/p/w200/{{ movie.poster_path }}"
           alt="poster"
         />
         <ng-template #defaultSimilarPoster>
-          <img src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
+          <img (click)="redirect.redirectToMovie(movie.id)" src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
         </ng-template>
         <mat-icon
           aria-hidden="false"
           aria-label="Add to list icon"
-          class="add-icon"
+          class="add-similar-movie-icon"
           (click)="dialog.openAddToListDialog(movie.id, movie.title)"
           >add</mat-icon
         >

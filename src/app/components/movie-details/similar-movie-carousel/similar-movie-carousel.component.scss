@@ -62,7 +62,7 @@ $text-color: white;
   border-radius: 2%;
 }
 
-.add-icon {
+.add-similar-movie-icon {
   position: absolute;
   opacity: 0.3;
   top: 2%;
@@ -70,7 +70,7 @@ $text-color: white;
   background-color: white;
   border-radius: 40%;
   &:hover {
-    // color: #66FCF1;
+    background-color: #1F2833;
     color: #45A29E;
   }
 }

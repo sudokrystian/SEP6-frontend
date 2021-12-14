@@ -2,19 +2,19 @@
   <div class="movie-search-list">
     <div *ngFor="let data of _newMovieData.results" class="movie-list">
       <div class="movie-poster-size">
-        <div
-          *ngIf="data.poster_path !== null; else defaultMovieText"
+        <div>
+          <img *ngIf="data.poster_path !== null; else defaultMovieText"
           (click)="redirect.redirectToMovie(data.id)"
-        >
-          <img
             mat-card-image
-            *ngIf="posterSize"
             src="https://image.tmdb.org/t/p/w{{ posterSize }}/{{
               data.poster_path
             }}"
             alt="poster"
             class="movie-poster-image"
           />
+          <ng-template #defaultMovieText>
+          <img (click)="redirect.redirectToMovie(data.id)" src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
+          </ng-template>
           <mat-icon
             aria-hidden="false"
             aria-label="Add to list icon"
@@ -23,9 +23,7 @@
             >add</mat-icon
           >
         </div>
-        <ng-template #defaultMovieText>
-          <img src="../../../../assets/picard_img_not_found.jpeg" alt="image_not_found" class="poster-not-found">
-        </ng-template>
+
       </div>
       <div class="information-div">
         <h2>{{ data.title }}</h2>
