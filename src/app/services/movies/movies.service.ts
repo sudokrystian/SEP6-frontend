@@ -11,7 +11,7 @@ import {SessionStorageService} from "../session-storage/session-storage.service"
 export class MoviesService {
 
 
-  constructor(private http: HttpClient, private url: UrlService, private session: SessionStorageService) { }
+  constructor(private http: HttpClient, private url: UrlService) { }
 
   getTrendingMovies(): Observable<TrendingMovies> {
     return this.http.get<TrendingMovies>(this.url.getServerURL() + 'movies/trending')

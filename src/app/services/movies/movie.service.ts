@@ -9,7 +9,6 @@ import {Comment} from 'src/app/models/comment.model';
   providedIn: 'root'
 })
 export class MovieService {
-  private httpOption = {headers: this.session.getCookieHeader()}
   constructor(
     private http: HttpClient,
     private url: UrlService,

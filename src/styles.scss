@@ -5,14 +5,15 @@
   // #C5C6C7 grey
   // #66FCF1 light aqua
   // #45A29E dark aqua
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
 html, body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Montserrat';
+  font-weight: 500;
   // background-color: #DDE5E7;
   background-color: #1F2833;
 }

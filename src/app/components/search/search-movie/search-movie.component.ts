@@ -33,11 +33,9 @@ export class SearchMovieComponent implements OnInit {
     this.searchBy = searchName
     this.api.getSearchResultByInput(this.pageNumber, searchName).subscribe({
       next: value => {
-        this._newMovieData = value,
-          console.log(value)
+        this._newMovieData = value
       },
       error: err => console.log(err.error),
-      complete: () => console.log('Have been completed')
     })
   }
 

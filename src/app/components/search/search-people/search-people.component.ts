@@ -31,11 +31,10 @@ export class SearchPeopleComponent implements OnInit {
     this.searchBy = searchName
     this.api.getSearchResultByPeople(this.pageNumber, searchName).subscribe({
       next: value => {
-        this._newPeopleData = value,
-          console.log(value)
+        this._newPeopleData = value
       },
       error: err => console.log(err.error),
-      complete: () => console.log('Have been completed')
+
     })
   }
 

@@ -57,7 +57,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
   getMovieDetails(id: number): void {
     this.service.getMovieDetails(id).subscribe({
       next: (res: MovieDetails) => {
-        console.log(res)
         this.movieToDisplay = res
       },
       error: err => {
@@ -69,14 +68,6 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     })
   }
 
-  getMovieImages(id: number): void {
-    this.service.getMovieImages(id).subscribe({
-      next: (res: MovieImages) => {
-        this.movieImagesToDisplay = res
-      }
-    })
-  }
-
   getCast(id: number): void {
     this.service.getCast(id).subscribe({
       next: (res: Credits) => {
@@ -84,9 +75,9 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
         this.movieCrew = res.crew;
         this.movieCast = res.cast;
         this.director = res.crew.find((crew) => crew.job === 'Director');
-        console.log(this.director);
       },
       error: (err) => {
+        console.log(err)
       },
       complete: () => {
         this.getDirector()
@@ -101,6 +92,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
           this.directorInfo = res
         },
         error: (err) => {
+          console.log(err)
         }
       })
   }
@@ -109,7 +101,8 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     this.service.getSimilarMovies(id).subscribe({
       next: (res: TrendingMovies) => {
         this.similarMovies = res
-      }
+      },
+      error: err => {console.log(err)}
     })
   }
 
@@ -121,7 +114,8 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
         const avg_rating = parseInt((total_rating / res.length).toFixed(1))
         this.movieRating = avg_rating;
         this.numberOfRatings = res.length;
-      }
+      },
+      error: err => {console.log(err)}
     });
   }
 

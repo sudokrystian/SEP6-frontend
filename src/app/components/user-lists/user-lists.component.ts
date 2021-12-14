@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MovieList } from 'src/app/models/movie-list.model';
-import { MovieListService } from 'src/app/services/movie-list/movie-list.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from "@angular/router";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MovieList} from 'src/app/models/movie-list.model';
+import {MovieListService} from 'src/app/services/movie-list/movie-list.service';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Router} from "@angular/router";
 
 
 export interface UserMovieListData {
@@ -23,7 +23,7 @@ export class UserListsComponent implements OnInit {
   movieLists: MovieList[] | undefined;
 
   errorMessageDisplayLists: string = "You have no existing lists."
-
+  errorMessageAddAlreadyExistingItemToList: string = '';
   errorMessageCreateList: string = '';
   newListName: string = '';
 
@@ -50,7 +50,7 @@ export class UserListsComponent implements OnInit {
           this.redirectToLogin();
           localStorage.clear();
         } else {
-          console.log(error);
+          console.log(error)
         }
       }
     })
@@ -70,7 +70,7 @@ export class UserListsComponent implements OnInit {
             this.redirectToLogin();
             localStorage.clear();
           } else {
-            console.log(error);
+            console.log(error)
           }
         },
       }).add(() => this.getUserLists())
@@ -81,15 +81,15 @@ export class UserListsComponent implements OnInit {
     this.api.addMovieToList(listId, this.movieId).subscribe({
       next: value => {
         this.closeDialog();
-        //TODO maybe add a snack bar to show info that the movie was added? https://material.angular.io/components/snack-bar/overview
-        // console.log(value)
       },
       error: error => {
         if (error.status === 401) {
           this.redirectToLogin();
           localStorage.clear();
+        } else if (error.status === 403) {
+          this.errorMessageAddAlreadyExistingItemToList = 'This movie is already in your list'
         } else {
-          console.log(error);
+          console.log(error)
         }
       },
     })

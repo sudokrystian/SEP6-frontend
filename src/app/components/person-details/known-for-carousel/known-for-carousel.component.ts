@@ -37,7 +37,6 @@ export class KnownForCarouselComponent implements OnInit {
       })
     } else {
       this.sliderRef?.changes.subscribe((components: QueryList<ElementRef<HTMLElement>>) => {
-        console.log("Change!")
         this.knownForMovieSlider = new KeenSlider<{}>(components.first.nativeElement, {
           loop: true,
           rtl: true,
@@ -47,7 +46,6 @@ export class KnownForCarouselComponent implements OnInit {
             spacing: 5,
           },
         })
-        console.log("Sldier loaded")
       });
     }
 

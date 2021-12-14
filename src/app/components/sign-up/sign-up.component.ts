@@ -68,7 +68,6 @@ export class SignUpComponent implements OnInit {
           this.errorMessage = "User " + username + " already exists. Change your credentials"
           this.signupFormGroup.reset();
         } else {
-          console.log("Error")
           console.log(err)
         }
       }

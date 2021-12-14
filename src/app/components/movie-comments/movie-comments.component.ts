@@ -45,7 +45,6 @@ export class MovieCommentsComponent implements OnInit {
       this.newCommentError = undefined
       this.api.addCommentForTheMovie(this.movieId!, this.newComment).subscribe({
         next: value => {
-
         },
         error: error => {
           console.log(error);

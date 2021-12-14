@@ -24,7 +24,6 @@ export class MovieListComponent implements OnInit {
     this.api.getDetailedUserLists().subscribe({
       next: value => {
         this.movieList = value;
-        console.log(value)
       },
       error: error => {
         if(error.status == 401) {
@@ -32,7 +31,7 @@ export class MovieListComponent implements OnInit {
           this.router.navigateByUrl('/login');
           localStorage.clear();
         } else {
-          console.log(error);
+          console.log(error)
         }
       }
     })

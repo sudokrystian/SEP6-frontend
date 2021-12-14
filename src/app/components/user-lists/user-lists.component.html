@@ -17,6 +17,7 @@
       >
         Add
       </button>
+      <span *ngIf="errorMessageAddAlreadyExistingItemToList !==''">{{errorMessageAddAlreadyExistingItemToList}}</span>
     </div>
     <ng-template #emptyList>{{ errorMessageDisplayLists }}</ng-template>
     <hr class="spacer-add-list" />

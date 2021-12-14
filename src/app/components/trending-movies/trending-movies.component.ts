@@ -54,7 +54,6 @@ export class TrendingMoviesComponent implements OnInit {
       },
       error: (e) => console.error("Error: " + e),
       complete: () => {
-        // Request finished here you cna optionally add updates, etc.
       }
     })
   }

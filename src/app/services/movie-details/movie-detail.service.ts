@@ -14,19 +14,13 @@ import {MovieRatings} from "../../models/movie-ratings";
   providedIn: 'root'
 })
 export class MovieDetailService {
-  private httpOption = {headers: this.session.getCookieHeader()}
   constructor(
     private http: HttpClient,
-    private url: UrlService,
-    private session: SessionStorageService) { }
+    private url: UrlService) { }
 
 
   getMovieDetails(id: number): Observable<MovieDetails> {
     return this.http.get<MovieDetails>(this.url.getServerURL() + 'movies/' + id)
-  }
-
-  getMovieImages(id: number): Observable<MovieImages> {
-    return this.http.get<MovieImages>(this.url.getServerURL() + 'movies/' + id + '/images')
   }
 
   getCast(id: number): Observable<Credits> {
